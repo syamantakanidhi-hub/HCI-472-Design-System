@@ -1,37 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
 
 /* Personal Color Tokens */
 :root {
-    --blood-20: #840015;
-    --blood-30: #6A0011; /* Primary System Tint */
-    --blood-50: #370009;
-    --terracotta-30: #9F3110;
-    --terracotta-50: #71240B;
-    --lavender-20: #EADEE3;
-    --lavender-50: #D4C3CB;
-    --beige-30: #FCEBE6;
-    --beige-50: #F7C6B8;
-    --neutral-100: #1F0005; /* Soft Muted Dark */
-    --white: #FFFFFF;
-    --bg-soft: #FAF6F5;
+  --bg: #050505;
+  --surface: #ffffff;
+  --ink: #240006;
+  --muted: #1f1718;
+  --wine: #880018;
+  --wine-dark: #3b0008;
+  --pink: #dfc3d1;
+  --purple: #7b38dc;
 }
 
-/* Base Body Framework */
+* { box-sizing: border-box; }
+
 body {
-    font-family: 'Quicksand', sans-serif;
-    background-color: var(--bg-soft);
-    color: var(--neutral-100);
+  margin: 0;
+  font-family: "Quicksand", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
 }
 
-/* System Type Hierarchy (Rounded Terminals) */
-h1 { font-size: 64px; font-weight: 700; line-height: 1.15; }
-h2 { font-size: 48px; font-weight: 700; line-height: 1.2; }
-h3 { font-size: 40px; font-weight: 600; line-height: 1.25; }
-h4 { font-size: 32px; font-weight: 600; line-height: 1.3; }
-h5 { font-size: 24px; font-weight: 500; line-height: 1.4; }
-h6 { font-size: 20px; font-weight: 500; line-height: 1.4; }
-p { font-size: 16px; line-height: 1.6; font-weight: 400; }
-.lead-p { font-size: 18px; line-height: 1.6; font-weight: 400; }
+a { color: inherit; text-decoration: none; }
 
 /* Sticky Left Layout Navigation Sidebar */
 .sidebar-wrapper {
@@ -46,7 +36,7 @@ p { font-size: 16px; line-height: 1.6; font-weight: 400; }
     text-align: center;
 }
 
-/* Curvy / Non-Angular Accordion Overrides */
+/* Accordion Custom Overrides */
 .nav-accordion .accordion-item {
     background: transparent;
     border: none;
@@ -55,7 +45,7 @@ p { font-size: 16px; line-height: 1.6; font-weight: 400; }
 
 .nav-accordion .accordion-button {
     background: transparent;
-    color: var(--neutral-100);
+    color: var(--ink);
     font-weight: 700;
     font-size: 1.05rem;
     padding: 0.5rem 0;
@@ -63,7 +53,7 @@ p { font-size: 16px; line-height: 1.6; font-weight: 400; }
 }
 
 .nav-accordion .accordion-button:not(.collapsed) {
-    color: var(--blood-30);
+    color: var(--wine);
     background: transparent;
 }
 
@@ -88,55 +78,8 @@ p { font-size: 16px; line-height: 1.6; font-weight: 400; }
 
 .sidebar-subnav a:hover,
 .sidebar-subnav a.active-link {
-    color: var(--blood-30);
+    color: var(--wine);
     font-weight: 700;
-}
-
-/* Combined Button Framework Style Targets */
-.btn-portfolio-filled {
-    background-color: var(--blood-30);
-    border: 2px solid var(--blood-30);
-    color: var(--white);
-    font-weight: 700;
-    padding: 12px 32px;
-    border-radius: 50px;
-    transition: all 0.25s ease-in-out;
-}
-
-.btn-portfolio-filled:hover, .btn-portfolio-filled:focus {
-    background-color: var(--blood-50);
-    border-color: var(--blood-50);
-    color: var(--white);
-    box-shadow: 0 0 0 4px rgba(106, 0, 17, 0.35);
-}
-
-.btn-portfolio-outlined {
-    background-color: transparent;
-    border: 2px solid var(--blood-30);
-    color: var(--blood-30);
-    font-weight: 700;
-    padding: 12px 32px;
-    border-radius: 50px;
-    transition: all 0.25s ease-in-out;
-}
-
-.btn-portfolio-outlined:hover, .btn-portfolio-outlined:focus {
-    background-color: var(--blood-30);
-    color: var(--white);
-    box-shadow: 0 0 0 4px rgba(106, 0, 17, 0.35);
-}
-
-/* Card Showcase Element Overrides */
-.portfolio-card {
-    background-color: var(--white);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.portfolio-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(31, 0, 5, 0.06);
 }
 
 /* Color Page System Swatches */
@@ -155,4 +98,203 @@ pre {
     border-radius: 12px;
     overflow-x: auto;
     font-family: monospace;
+}
+
+/* Nidi Custom System UI Components */
+.nidi-button {
+  min-height: 43px;
+  border-radius: 999px;
+  border: 2px solid var(--wine);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Quicksand", system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0 24px;
+}
+
+.nidi-button--primary {
+  width: 104px;
+  background: var(--wine);
+  color: #fff;
+}
+
+.nidi-button--primary:hover {
+  background: var(--wine-dark);
+  border-color: var(--wine-dark);
+}
+
+.nidi-button--primary:active {
+  background: var(--wine-dark);
+  border-color: var(--wine-dark);
+}
+
+.nidi-button--primary:disabled {
+  background: #b8b8b8;
+  border-color: #b8b8b8;
+  color: #909090;
+  cursor: not-allowed;
+}
+
+.nidi-button--secondary {
+  width: 104px;
+  background: transparent;
+  color: var(--wine);
+}
+
+.nidi-button--secondary:hover {
+  background: rgba(136, 0, 24, 0.08);
+}
+
+.nidi-button--secondary:active {
+  border-color: var(--wine-dark);
+  color: var(--wine-dark);
+}
+
+.nidi-button--secondary.is-light {
+  border-color: #d9d9d9;
+  color: #d9d9d9;
+}
+
+.nidi-button--cta {
+  width: auto;
+  min-width: 166px;
+  padding: 0 20px;
+  font-size: 14px;
+}
+
+/* Navigation Framework Elements */
+.nidi-nav {
+  min-height: 104px;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  border-radius: 8px;
+}
+
+.nidi-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 7px;
+  background: var(--pink);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  font-family: "Pacifico", cursive;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.nidi-nav__links {
+  display: flex;
+  gap: 42px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.nidi-nav__link[aria-current="page"] {
+  color: var(--wine);
+  font-weight: 700;
+}
+
+.nidi-menu {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+}
+
+@media (max-width: 760px) {
+  .nidi-nav { padding: 0 40px; }
+  .nidi-nav__links { display: none; }
+  .nidi-menu { display: inline-grid; place-items: center; }
+}
+
+/* Hero Section Elements */
+.nidi-hero {
+  min-height: 520px;
+  display: grid;
+  grid-template-columns: 300px minmax(280px, 500px);
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  color: var(--muted);
+  background: var(--bg);
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.nidi-portrait {
+  width: 294px;
+  height: 294px;
+  position: relative;
+  overflow: hidden;
+  border: 5px solid var(--wine);
+  border-radius: 86px 86px 12px 86px;
+  background:
+    radial-gradient(circle at 52% 45%, #d5a0ad 0 104px, transparent 105px),
+    linear-gradient(135deg, #ffc4b8 0%, #ffd0c4 62%, #ff9d80 100%);
+}
+
+.nidi-portrait::before {
+  content: "";
+  position: absolute;
+  inset: 60px 48px -24px;
+  border-radius: 48% 52% 38% 36%;
+  background: linear-gradient(130deg, #130c0c 0 26%, #3d221e 60%, #120b0b 100%);
+}
+
+.nidi-portrait::after {
+  content: "";
+  position: absolute;
+  width: 72px;
+  height: 94px;
+  left: 50%;
+  top: 92px;
+  transform: translateX(-50%);
+  border-radius: 46% 46% 40% 40%;
+  background: #c98d73;
+}
+
+.nidi-hero__eyebrow {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.nidi-hero__title {
+  margin: 0 0 14px;
+  color: var(--wine);
+  font-family: "Pacifico", cursive;
+  font-size: 58px;
+  line-height: 1;
+}
+
+.nidi-hero__copy {
+  max-width: 500px;
+  margin: 0 0 22px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+@media (max-width: 760px) {
+  .nidi-hero {
+    min-height: 640px;
+    grid-template-columns: 1fr;
+    gap: 26px;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .nidi-hero__copy {
+    max-width: 330px;
+    font-size: 18px;
+  }
 }

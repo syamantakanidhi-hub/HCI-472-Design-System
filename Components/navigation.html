@@ -6,11 +6,8 @@
     <title>Navigation Component - System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/homework.css">
-    <style>
-        .custom-nav-box { font-weight:700; background:#D4C3CB; color:#1F0005; padding:8px 12px; border-radius:6px; text-decoration:none; }
-    </style>
 </head>
-<body>
+<body style="background: #FAF6F5;">
 
 <div class="container-fluid">
     <div class="row">
@@ -39,37 +36,43 @@
             </div>
         </div>
 
-        <!-- Navigation Specs Content Area -->
         <main class="col-md-9 col-lg-10 px-md-5 py-5">
-            <h2>Interface Navigation bar</h2>
-            <p class="lead-p text-muted">Handles top-level route navigation across responsive layout canvases.</p>
+            <h2 style="color: var(--wine);">Navigation bar</h2>
+            <p class="lead-p text-muted">Handles primary site path navigation layout settings.</p>
             
-            <div class="card p-4 my-4">
-                <h5>Live Interactive Preview</h5>
-                <nav class="navbar navbar-expand-lg bg-white border rounded-3 p-3">
-                    <div class="container-fluid">
-                        <a class="custom-nav-box" href="#">sn</a>
-                        <div class="d-flex gap-3 ms-auto">
-                            <a href="#" class="text-dark text-decoration-none fw-bold small">Work</a>
-                            <a href="#" class="text-dark text-decoration-none small">About</a>
-                        </div>
-                    </div>
-                </nav>
+            <div class="card p-4 my-4 bg-light border-0">
+                <h5>Live Navigation Module</h5>
+                <div class="py-2">
+                    <nav class="nidi-nav" aria-label="Primary navigation">
+                      <a class="nidi-logo" href="#">sn</a>
+                      <div class="nidi-nav__links">
+                        <a class="nidi-nav__link" href="#work" aria-current="page">Work</a>
+                        <a class="nidi-nav__link" href="#about">About</a>
+                        <a class="nidi-nav__link" href="#contact">Contact</a>
+                      </div>
+                      <button class="nidi-menu" type="button" aria-label="Open menu">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                          <path d="M5 7h14M5 12h14M5 17h14"/>
+                        </svg>
+                      </button>
+                    </nav>
+                </div>
             </div>
 
             <h5 class="mt-4">Accessibility Targets</h5>
             <p class="p-3 bg-light border-start border-4 border-danger small">
-                1. Employs semantic native structural HTML5 nav wrapper landmark container definitions.<br>
-                2. Embeds distinct aria-expanded visibility flags to monitor collapsing link states accurately.<br>
-                3. Links enforce strict focus-ring highlights to accommodate alternative pointer inputs safely.
+                1. Nav links deploy clear <code>aria-current="page"</code> properties to distinguish the active tab status.<br>
+                2. Embedded action triggers carry screen-reader descriptive labels to describe menu utility paths smoothly.<br>
+                3. The logo font choice preserves an ergonomic scale footprint to balance identity reading targets.
             </p>
 
             <h5 class="mt-4">Implementation Code</h5>
-<pre><code>&lt;nav class="navbar navbar-expand-lg sticky-top p-3"&gt;
-  &lt;div class="container-fluid"&gt;
-    &lt;a class="logo-token" href="#"&gt;sn&lt;/a&gt;
+<pre><code>&lt;nav class="nidi-nav" aria-label="Primary navigation"&gt;
+  &lt;a class="nidi-logo" href="#"&gt;sn&lt;/a&gt;
+  &lt;div class="nidi-nav__links"&gt;
+    &lt;a class="nidi-nav__link" href="#work" aria-current="page"&gt;Work&lt;/a&gt;
   &lt;/div&gt;
-&lt;/nav></code></pre>
+&lt;/nav&gt;</code></pre>
         </main>
     </div>
 </div>

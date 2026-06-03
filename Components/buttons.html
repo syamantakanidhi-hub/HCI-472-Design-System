@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/homework.css">
 </head>
-<body>
+<body style="background: #FAF6F5;">
 
 <div class="container-fluid">
     <div class="row">
@@ -36,35 +36,39 @@
             </div>
         </div>
 
-        <!-- Component Preview & Code Canvas -->
         <main class="col-md-9 col-lg-10 px-md-5 py-5">
-            <h2>Button Component Module</h2>
-            <p class="lead-p text-muted">A combined structure balancing primary filled state variables alongside secondary outlined frames.</p>
+            <h2 style="color: var(--wine);">Button Elements</h2>
+            <p class="lead-p text-muted">Interactive action button components rendered via clean code blocks.</p>
             
-            <div class="card p-4 my-4">
-                <h5>Interactive Component Preview</h5>
-                <div class="d-flex gap-3 py-3">
-                    <button type="button" class="btn btn-portfolio-filled">Wanna Know More?</button>
-                    <button type="button" class="btn btn-portfolio-outlined">Wanna Know More?</button>
+            <div class="card p-4 my-4 bg-white border-0 shadow-sm rounded-4">
+                <h5>Component Workspace Preview</h5>
+                <div class="d-flex flex-wrap gap-3 py-3 align-items-center">
+                    <button class="nidi-button nidi-button--primary">Default</button>
+                    <button class="nidi-button nidi-button--primary" disabled>Default</button>
+                    <button class="nidi-button nidi-button--secondary">Default</button>
+                    <a class="nidi-button nidi-button--primary nidi-button--cta" href="#">Wanna Know More?</a>
                 </div>
             </div>
 
             <h5 class="mt-4">Details of Use</h5>
-            <p>Primary filled button instances target main contextual conversion paths (such as reading case studies). Outlined properties indicate parallel alternatives to manage clean interface choices.</p>
+            <p>Primary capsule fills dictate key workflow paths. Call-to-Action variants scale container min-widths horizontally up to 166px with localized padding settings to focus layout paths.</p>
 
-            <h5 class="mt-4">Accessibility Mappings</h5>
+            <h5 class="mt-4">Accessibility Targets</h5>
             <p class="p-3 bg-light border-start border-4 border-danger small">
-                1. Maintains safe high-contrast foreground color rules matching WCAG AA visibility targets.<br>
-                2. Configures explicitly styled browser box-shadow outline focus frames for keyboard navigation pathways.<br>
-                3. Elevates padding parameters to force touch target heights past a minimum 44px responsive click scale.
+                1. Maintains explicit contrast targets using white-on-wine typography layouts.<br>
+                2. Formulates touch zones exceeding a 43px ergonomic mobile target frame.<br>
+                3. Integrates native <code>disabled</code> attributes to accurately modify pointer interaction contexts.
             </p>
 
             <h5 class="mt-4">System Implementation Code</h5>
-<pre><code>&lt;!-- Primary Filled Configuration --&gt;
-&lt;button type="button" class="btn btn-portfolio-filled"&gt;Wanna Know More?&lt;/button&gt;
+<pre><code>&lt;!-- Primary Action --&gt;
+&lt;button class="nidi-button nidi-button--primary"&gt;Default&lt;/button&gt;
 
-&lt;!-- Secondary Outlined Configuration --&gt;
-&lt;button type="button" class="btn btn-portfolio-outlined"&gt;Wanna Know More?&lt;/button&gt;</code></pre>
+&lt;!-- Disabled State --&gt;
+&lt;button class="nidi-button nidi-button--primary" disabled&gt;Default&lt;/button&gt;
+
+&lt;!-- Secondary Outline --&gt;
+&lt;button class="nidi-button nidi-button--secondary"&gt;Default&lt;/button&gt;</code></pre>
         </main>
     </div>
 </div>
