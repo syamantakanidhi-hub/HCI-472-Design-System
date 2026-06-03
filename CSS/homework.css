@@ -1,165 +1,158 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2822
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww11620\viewh11020\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
 
-\f0\fs24 \cf0 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');\
-\
-/* Personal Color Tokens */\
-:root \{\
-    --blood-20: #840015;\
-    --blood-30: #6A0011; /* Primary System Tint */\
-    --blood-50: #370009;\
-    --terracotta-30: #9F3110;\
-    --terracotta-50: #71240B;\
-    --lavender-20: #EADEE3;\
-    --lavender-50: #D4C3CB;\
-    --beige-30: #FCEBE6;\
-    --beige-50: #F7C6B8;\
-    --neutral-100: #1F0005; /* Soft Muted Dark */\
-    --white: #FFFFFF;\
-    --bg-soft: #FAF6F5;\
-\}\
-\
-/* Base Body Framework */\
-body \{\
-    font-family: 'Quicksand', sans-serif;\
-    background-color: var(--bg-soft);\
-    color: var(--neutral-100);\
-\}\
-\
-/* System Type Hierarchy (Rounded Terminals) */\
-h1 \{ font-size: 64px; font-weight: 700; line-height: 1.15; \}\
-h2 \{ font-size: 48px; font-weight: 700; line-height: 1.2; \}\
-h3 \{ font-size: 40px; font-weight: 600; line-height: 1.25; \}\
-h4 \{ font-size: 32px; font-weight: 600; line-height: 1.3; \}\
-h5 \{ font-size: 24px; font-weight: 500; line-height: 1.4; \}\
-h6 \{ font-size: 20px; font-weight: 500; line-height: 1.4; \}\
-p \{ font-size: 16px; line-height: 1.6; font-weight: 400; \}\
-.lead-p \{ font-size: 18px; line-height: 1.6; font-weight: 400; \}\
-\
-/* Sticky Left Layout Navigation Sidebar */\
-.sidebar-wrapper \{\
-    background-color: #F3EBE9;\
-    border-right: 1px solid rgba(0, 0, 0, 0.05);\
-    min-height: 100vh;\
-    padding: 2rem 1.5rem;\
-\}\
-\
-.brand-wrapper \{\
-    padding-bottom: 2rem;\
-    text-align: center;\
-\}\
-\
-/* Curvy / Non-Angular Accordion Overrides */\
-.nav-accordion .accordion-item \{\
-    background: transparent;\
-    border: none;\
-    margin-bottom: 0.75rem;\
-\}\
-\
-.nav-accordion .accordion-button \{\
-    background: transparent;\
-    color: var(--neutral-100);\
-    font-weight: 700;\
-    font-size: 1.05rem;\
-    padding: 0.5rem 0;\
-    box-shadow: none;\
-\}\
-\
-.nav-accordion .accordion-button:not(.collapsed) \{\
-    color: var(--blood-30);\
-    background: transparent;\
-\}\
-\
-.nav-accordion .accordion-button::after \{\
-    filter: sepia(100%) saturate(200%) hue-rotate(320deg);\
-\}\
-\
-.sidebar-subnav \{\
-    list-style: none;\
-    padding-left: 1rem;\
-    margin: 0.25rem 0 0 0;\
-\}\
-\
-.sidebar-subnav a \{\
-    color: #5A4245;\
-    text-decoration: none;\
-    display: block;\
-    padding: 0.4rem 0;\
-    font-weight: 500;\
-    transition: all 0.2s ease;\
-\}\
-\
-.sidebar-subnav a:hover,\
-.sidebar-subnav a.active-link \{\
-    color: var(--blood-30);\
-    font-weight: 700;\
-\}\
-\
-/* Combined Button Framework Style Targets */\
-.btn-portfolio-filled \{\
-    background-color: var(--blood-30);\
-    border: 2px solid var(--blood-30);\
-    color: var(--white);\
-    font-weight: 700;\
-    padding: 12px 32px;\
-    border-radius: 50px;\
-    transition: all 0.25s ease-in-out;\
-\}\
-\
-.btn-portfolio-filled:hover, .btn-portfolio-filled:focus \{\
-    background-color: var(--blood-50);\
-    border-color: var(--blood-50);\
-    color: var(--white);\
-    box-shadow: 0 0 0 4px rgba(106, 0, 17, 0.35);\
-\}\
-\
-.btn-portfolio-outlined \{\
-    background-color: transparent;\
-    border: 2px solid var(--blood-30);\
-    color: var(--blood-30);\
-    font-weight: 700;\
-    padding: 12px 32px;\
-    border-radius: 50px;\
-    transition: all 0.25s ease-in-out;\
-\}\
-\
-.btn-portfolio-outlined:hover, .btn-portfolio-outlined:focus \{\
-    background-color: var(--blood-30);\
-    color: var(--white);\
-    box-shadow: 0 0 0 4px rgba(106, 0, 17, 0.35);\
-\}\
-\
-/* Card Showcase Element Overrides */\
-.portfolio-card \{\
-    background-color: var(--white);\
-    border: 1px solid rgba(0, 0, 0, 0.06);\
-    border-radius: 16px;\
-    overflow: hidden;\
-    transition: transform 0.2s ease, box-shadow 0.2s ease;\
-\}\
-.portfolio-card:hover \{\
-    transform: translateY(-4px);\
-    box-shadow: 0 12px 24px rgba(31, 0, 5, 0.06);\
-\}\
-\
-/* Color Page System Swatches */\
-.color-swatch \{\
-    height: 120px;\
-    border-radius: 16px;\
-    margin-bottom: 0.75rem;\
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);\
-\}\
-\
-/* Live Component Code Display Blocks */\
-pre \{\
-    background-color: #231215;\
-    color: #F8EFEF;\
-    padding: 1.5rem;\
-    border-radius: 12px;\
-    overflow-x: auto;\
-    font-family: monospace;\
-\}}
+/* Personal Color Tokens */
+:root {
+    --blood-20: #840015;
+    --blood-30: #6A0011; /* Primary System Tint */
+    --blood-50: #370009;
+    --terracotta-30: #9F3110;
+    --terracotta-50: #71240B;
+    --lavender-20: #EADEE3;
+    --lavender-50: #D4C3CB;
+    --beige-30: #FCEBE6;
+    --beige-50: #F7C6B8;
+    --neutral-100: #1F0005; /* Soft Muted Dark */
+    --white: #FFFFFF;
+    --bg-soft: #FAF6F5;
+}
+
+/* Base Body Framework */
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--bg-soft);
+    color: var(--neutral-100);
+}
+
+/* System Type Hierarchy (Rounded Terminals) */
+h1 { font-size: 64px; font-weight: 700; line-height: 1.15; }
+h2 { font-size: 48px; font-weight: 700; line-height: 1.2; }
+h3 { font-size: 40px; font-weight: 600; line-height: 1.25; }
+h4 { font-size: 32px; font-weight: 600; line-height: 1.3; }
+h5 { font-size: 24px; font-weight: 500; line-height: 1.4; }
+h6 { font-size: 20px; font-weight: 500; line-height: 1.4; }
+p { font-size: 16px; line-height: 1.6; font-weight: 400; }
+.lead-p { font-size: 18px; line-height: 1.6; font-weight: 400; }
+
+/* Sticky Left Layout Navigation Sidebar */
+.sidebar-wrapper {
+    background-color: #F3EBE9;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+}
+
+.brand-wrapper {
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+/* Curvy / Non-Angular Accordion Overrides */
+.nav-accordion .accordion-item {
+    background: transparent;
+    border: none;
+    margin-bottom: 0.75rem;
+}
+
+.nav-accordion .accordion-button {
+    background: transparent;
+    color: var(--neutral-100);
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 0.5rem 0;
+    box-shadow: none;
+}
+
+.nav-accordion .accordion-button:not(.collapsed) {
+    color: var(--blood-30);
+    background: transparent;
+}
+
+.nav-accordion .accordion-button::after {
+    filter: sepia(100%) saturate(200%) hue-rotate(320deg);
+}
+
+.sidebar-subnav {
+    list-style: none;
+    padding-left: 1rem;
+    margin: 0.25rem 0 0 0;
+}
+
+.sidebar-subnav a {
+    color: #5A4245;
+    text-decoration: none;
+    display: block;
+    padding: 0.4rem 0;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.sidebar-subnav a:hover,
+.sidebar-subnav a.active-link {
+    color: var(--blood-30);
+    font-weight: 700;
+}
+
+/* Combined Button Framework Style Targets */
+.btn-portfolio-filled {
+    background-color: var(--blood-30);
+    border: 2px solid var(--blood-30);
+    color: var(--white);
+    font-weight: 700;
+    padding: 12px 32px;
+    border-radius: 50px;
+    transition: all 0.25s ease-in-out;
+}
+
+.btn-portfolio-filled:hover, .btn-portfolio-filled:focus {
+    background-color: var(--blood-50);
+    border-color: var(--blood-50);
+    color: var(--white);
+    box-shadow: 0 0 0 4px rgba(106, 0, 17, 0.35);
+}
+
+.btn-portfolio-outlined {
+    background-color: transparent;
+    border: 2px solid var(--blood-30);
+    color: var(--blood-30);
+    font-weight: 700;
+    padding: 12px 32px;
+    border-radius: 50px;
+    transition: all 0.25s ease-in-out;
+}
+
+.btn-portfolio-outlined:hover, .btn-portfolio-outlined:focus {
+    background-color: var(--blood-30);
+    color: var(--white);
+    box-shadow: 0 0 0 4px rgba(106, 0, 17, 0.35);
+}
+
+/* Card Showcase Element Overrides */
+.portfolio-card {
+    background-color: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.portfolio-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(31, 0, 5, 0.06);
+}
+
+/* Color Page System Swatches */
+.color-swatch {
+    height: 120px;
+    border-radius: 16px;
+    margin-bottom: 0.75rem;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+}
+
+/* Live Component Code Display Blocks */
+pre {
+    background-color: #231215;
+    color: #F8EFEF;
+    padding: 1.5rem;
+    border-radius: 12px;
+    overflow-x: auto;
+    font-family: monospace;
+}
