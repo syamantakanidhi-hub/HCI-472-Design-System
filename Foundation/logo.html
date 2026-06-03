@@ -1,61 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logo Foundation - System</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/homework.css">
-</head>
-<body>
+<main class="col-md-9 col-lg-10 px-md-5 py-5">
+    <h2>Logos</h2>
+    <hr class="my-4">
 
-<div class="container-fluid">
-    <div class="row">
-        <!-- Sidebar Navigation Dashboard Frame -->
-        <div class="col-md-3 col-lg-2 sidebar-wrapper sticky-top">
-            <div class="brand-wrapper"><a href="../index.html" style="text-decoration:none; color:inherit;"><h4>sam nidhi</h4></a><span class="badge bg-dark rounded-pill">HCI 472</span></div>
-            <div class="accordion nav-accordion" id="systemNavBlock">
-                <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#f-foundations" aria-expanded="true">Foundation</button></h2>
-                    <div id="f-foundations" class="accordion-collapse collapse show" data-bs-parent="#systemNavBlock">
-                        <ul class="sidebar-subnav">
-                            <li><a href="color.html">Color Palette</a></li>
-                            <li><a href="typography.html">Typography</a></li>
-                            <li><a href="logo.html" class="active-link">Logo System</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f-components">Components</button></h2>
-                    <div id="f-components" class="accordion-collapse collapse" data-bs-parent="#systemNavBlock"><ul class="sidebar-subnav"><li><a href="../Components/buttons.html">Buttons</a></li><li><a href="../Components/cards.html">Cards</a></li><li><a href="../Components/navigation.html">Navigation</a></li></ul></div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f-pages">Pages</button></h2>
-                    <div id="f-pages" class="accordion-collapse collapse" data-bs-parent="#systemNavBlock"><ul class="sidebar-subnav"><li><a href="../Pages/desktop.html">Desktop Layout</a></li><li><a href="../Pages/tablet.html">Tablet Layout</a></li><li><a href="../Pages/mobile.html">Mobile Layout</a></li></ul></div>
-                </div>
+    <p class="lead-p">
+        My logo system balances three core semantic visual representations to accommodate scalable interface sizes. To avoid a cold, corporate future-facing layout footprint, my brand rules prohibit sharp, angular corners or heavy geometric forms. All icon manifestations must be positioned over soft, low-contrast color backings to maintain an organic, approachable screen performance footprint.
+    </p>
+
+    <div class="row g-4 mt-4">
+        <div class="col-md-4">
+            <div class="p-4 bg-white border rounded-4 text-center">
+                <div class="nidi-logo mx-auto mb-3" style="width:72px; height:72px; font-family:'Pacifico', cursive; font-size:36px; background:#dfc3d1; border-radius:12px; display:grid; place-items:center; color:#240006;">sn</div>
+                <h6>Monogram Mark</h6>
+                <p class="small text-muted">Compact capsule configuration display token for restricted footprints like app navbars.</p>
             </div>
         </div>
-
-        <!-- Logo Overview Canvas -->
-        <main class="col-md-9 col-lg-10 px-md-5 py-5">
-            <h2>Identity & Logomark System</h2>
-            <p class="lead-p text-muted">A fluid branding ecosystem structured around curves and historical naming context.</p>
-            <hr class="my-4">
-
-            <h4>Visual System Assets</h4>
-            <p>Our logo balances three core semantic visual representations to accommodate scalable interface sizes:</p>
-            <ul>
-                <li><strong>Wordmark:</strong> The primary brand identifier displaying "sam nidhi" utilizing custom Momo Signature script.</li>
-                <li><strong>Initials Monogram:</strong> A compressed capsule configuration display token ("sn") integrated down inside dense layouts like app navbars.</li>
-                <li><strong>Icon Mark:</strong> A stylized diamond wire representation reflecting the historical derivation of the full name <em>Syamantaka</em>—the divine gemstone assigned to Krishna.</li>
-            </ul>
-
-            <h4 class="mt-5">Identity Restrictions</h4>
-            <p>To avoid a cold, corporate future-facing layout footprint, the brand rules prohibit sharp, angular corners or high-weight geometries. All icon manifestations must be positioned over low-contrast color backings to keep an organic, soft screen performance footprint.</p>
-        </main>
+        <div class="col-md-4">
+            <div class="p-4 bg-white border rounded-4 text-center">
+                <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-3" style="height:72px; background:#FAF6F5; color:#880018; font-family:'Pacifico', cursive; font-size:32px;">sam nidhi</div>
+                <h6>Wordmark</h6>
+                <p class="small text-muted">The primary identifier displaying my full name script utilizing custom Momo Signature font styles.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-4 bg-white border rounded-4 text-center">
+                <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-3" style="height:72px; background:#FCEBE6; color:#880018;">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg>
+                </div>
+                <h6>Icon Mark</h6>
+                <p class="small text-muted">A stylized diamond line configuration reflecting the historical derivation of my name, <em>Syamantaka</em>.</p>
+            </div>
+        </div>
     </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+</main>

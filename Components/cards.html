@@ -1,89 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card Component - System</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/homework.css">
-    <style>
-        .badge-tag { font-size:11px; font-weight:700; padding:6px 12px; border-radius:6px; }
-        .tag-research { background-color: #D6B2B8; color: #6A0011; }
-        .tag-design { background-color: #D6A598; color: #431505; }
-    </style>
-</head>
-<body>
+<main class="col-md-9 col-lg-10 px-md-5 py-5">
+    <h2>Landing Page Work Card</h2>
+    <hr class="my-4">
 
-<div class="container-fluid">
-    <div class="row">
-        <!-- Sidebar Navigation Dashboard Frame -->
-        <div class="col-md-3 col-lg-2 sidebar-wrapper sticky-top">
-            <div class="brand-wrapper"><a href="../index.html" style="text-decoration:none; color:inherit;"><h4>sam nidhi</h4></a><span class="badge bg-dark rounded-pill">HCI 472</span></div>
-            <div class="accordion nav-accordion" id="systemNavBlock">
-                <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f-foundations">Foundation</button></h2>
-                    <div id="f-foundations" class="accordion-collapse collapse" data-bs-parent="#systemNavBlock"><ul class="sidebar-subnav"><li><a href="../Foundation/color.html">Color Palette</a></li><li><a href="../Foundation/typography.html">Typography</a></li><li><a href="../Foundation/logo.html">Logo System</a></li></ul></div>
+    <h5>Card Layout Use</h5>
+    <p class="lead-p text-muted">Encapsulates project highlights, case study metadata tags, and descriptive copy blocks cleanly across portfolio landing grid systems.</p>
+
+    <div class="my-4" style="max-width: 450px;">
+        <div class="card portfolio-card">
+            <div style="height: 200px; background-color: #EBE6E6;"></div>
+            <div class="card-body p-4">
+                <div class="d-flex gap-2 mb-3">
+                    <span class="badge" style="font-size:11px; font-weight:700; padding:6px 12px; border-radius:6px; background-color: #D6B2B8; color: #6A0011;">UX RESEARCH</span>
+                    <span class="badge" style="font-size:11px; font-weight:700; padding:6px 12px; border-radius:6px; background-color: #D6A598; color: #431505;">UX DESIGN</span>
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#f-components" aria-expanded="true">Components</button></h2>
-                    <div id="f-components" class="accordion-collapse collapse show" data-bs-parent="#systemNavBlock">
-                        <ul class="sidebar-subnav">
-                            <li><a href="buttons.html">Buttons</a></li>
-                            <li><a href="cards.html" class="active-link">Cards</a></li>
-                            <li><a href="navigation.html">Navigation</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f-pages">Pages</button></h2>
-                    <div id="f-pages" class="accordion-collapse collapse" data-bs-parent="#systemNavBlock"><ul class="sidebar-subnav"><li><a href="../Pages/desktop.html">Desktop Layout</a></li><li><a href="../Pages/tablet.html">Tablet Layout</a></li><li><a href="../Pages/mobile.html">Mobile Layout</a></li></ul></div>
-                </div>
+                <h3 style="font-size: 32px; font-weight: 700; font-family: 'Quicksand', sans-serif;">Rethinking the Grocery</h3>
+                <p class="text-muted small mb-0">Redesigning a grocery delivery app's checkout flow to reduce drop-off by 40% — from discovery research to a tested, shippable prototype.</p>
             </div>
         </div>
+    </div>
 
-        <!-- Card Code Display Canvas -->
-        <main class="col-md-9 col-lg-10 px-md-5 py-5">
-            <h2>Work Case Showcase Card</h2>
-            <p class="lead-p text-muted">Encapsulates case studies cleanly into dynamic layouts.</p>
-            
-            <div class="card p-4 my-4">
-                <h5>Live Interactive Preview</h5>
-                <div class="col-md-6 py-2">
-                    <div class="card portfolio-card">
-                        <div style="height:180px; background-color:#EBE6E6;"></div>
-                        <div class="card-body p-4">
-                            <div class="d-flex gap-2 mb-3">
-                                <span class="badge-tag tag-research">UX RESEARCH</span>
-                                <span class="badge-tag tag-design">UX DESIGN</span>
-                            </div>
-                            <h3 style="font-size:32px; font-weight:700;">Rethinking the Grocery</h3>
-                            <p class="small text-muted mb-0">Redesigning checkout pathways to reduce user drop-off metrics by 40%.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <h5 class="mt-4">Accessibility Parameters</h5>
-            <p class="p-3 bg-light border-start border-4 border-danger small">
-                1. Image wrappers carry detailed programmatic alternative descriptive string text values.<br>
-                2. Explicit color definitions are leveraged instead of relying on simple color hue changes to define system tags.<br>
-                3. Cards isolate link paths cleanly to guarantee screen readers do not process redundant container tracking clicks.
-            </p>
-
-            <h5 class="mt-4">Implementation Code</h5>
+    <h5 class="mt-4">Implementation Code</h5>
 <pre><code>&lt;div class="card portfolio-card"&gt;
-  &lt;div class="card-media-top" style="height:180px; background:#EBE6E6;"&gt;&lt;/div&gt;
+  &lt;div class="card-img-placeholder" style="height: 200px; background: #EBE6E6;"&gt;&lt;/div&gt;
   &lt;div class="card-body p-4"&gt;
     &lt;div class="d-flex gap-2 mb-3"&gt;
-      &lt;span class="badge-tag tag-research"&gt;UX RESEARCH&lt;/span&gt;
+      &lt;span class="badge tag-ux-research"&gt;UX RESEARCH&lt;/span&gt;
+      &lt;span class="badge tag-ux-design"&gt;UX DESIGN&lt;/span&gt;
     &lt;/div&gt;
-    &lt;h3 class="h3-scale"&gt;Rethinking the Grocery&lt;/h3&gt;
+    &lt;h3&gt;Rethinking the Grocery&lt;/h3&gt;
+    &lt;p&gt;Redesigning a grocery delivery app's checkout flow...&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-        </main>
-    </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <h5 class="mt-4">Accessibility Parameters</h5>
+    <p class="p-3 bg-light border-start border-4 border-danger small text-muted">
+        Employs structural relative padding scales for clean resizing transitions, avoids using simple color changes alone to present individual tag categories, and maps text elements linearly for screen readers.
+    </p>
+</main>

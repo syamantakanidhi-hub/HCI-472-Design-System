@@ -1,78 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button Component - System</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/homework.css">
-</head>
-<body style="background: #FAF6F5;">
+<main class="col-md-9 col-lg-10 px-md-5 py-5">
+    <h2>Buttons</h2>
+    <hr class="my-4">
 
-<div class="container-fluid">
-    <div class="row">
-        <!-- Sidebar Navigation Dashboard Frame -->
-        <div class="col-md-3 col-lg-2 sidebar-wrapper sticky-top">
-            <div class="brand-wrapper"><a href="../index.html" style="text-decoration:none; color:inherit;"><h4>sam nidhi</h4></a><span class="badge bg-dark rounded-pill">HCI 472</span></div>
-            <div class="accordion nav-accordion" id="systemNavBlock">
-                <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f-foundations">Foundation</button></h2>
-                    <div id="f-foundations" class="accordion-collapse collapse" data-bs-parent="#systemNavBlock"><ul class="sidebar-subnav"><li><a href="../Foundation/color.html">Color Palette</a></li><li><a href="../Foundation/typography.html">Typography</a></li><li><a href="../Foundation/logo.html">Logo System</a></li></ul></div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#f-components" aria-expanded="true">Components</button></h2>
-                    <div id="f-components" class="accordion-collapse collapse show" data-bs-parent="#systemNavBlock">
-                        <ul class="sidebar-subnav">
-                            <li><a href="buttons.html" class="active-link">Buttons</a></li>
-                            <li><a href="cards.html">Cards</a></li>
-                            <li><a href="navigation.html">Navigation</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f-pages">Pages</button></h2>
-                    <div id="f-pages" class="accordion-collapse collapse" data-bs-parent="#systemNavBlock"><ul class="sidebar-subnav"><li><a href="../Pages/desktop.html">Desktop Layout</a></li><li><a href="../Pages/tablet.html">Tablet Layout</a></li><li><a href="../Pages/mobile.html">Mobile Layout</a></li></ul></div>
-                </div>
+    <div class="mb-5">
+        <h4>Primary Button</h4>
+        <div class="card p-4 my-3 bg-white border-0 shadow-sm rounded-4">
+            <div class="d-flex flex-wrap gap-3 align-items-center">
+                <button class="nidi-button nidi-button--primary">Default</button>
+                <button class="nidi-button nidi-button--primary" disabled>Default</button>
+                <a class="nidi-button nidi-button--primary nidi-button--cta" href="#">Wanna Know More?</a>
             </div>
         </div>
-
-        <main class="col-md-9 col-lg-10 px-md-5 py-5">
-            <h2 style="color: var(--wine);">Button Elements</h2>
-            <p class="lead-p text-muted">Interactive action button components rendered via clean code blocks.</p>
-            
-            <div class="card p-4 my-4 bg-white border-0 shadow-sm rounded-4">
-                <h5>Component Workspace Preview</h5>
-                <div class="d-flex flex-wrap gap-3 py-3 align-items-center">
-                    <button class="nidi-button nidi-button--primary">Default</button>
-                    <button class="nidi-button nidi-button--primary" disabled>Default</button>
-                    <button class="nidi-button nidi-button--secondary">Default</button>
-                    <a class="nidi-button nidi-button--primary nidi-button--cta" href="#">Wanna Know More?</a>
-                </div>
-            </div>
-
-            <h5 class="mt-4">Details of Use</h5>
-            <p>Primary capsule fills dictate key workflow paths. Call-to-Action variants scale container min-widths horizontally up to 166px with localized padding settings to focus layout paths.</p>
-
-            <h5 class="mt-4">Accessibility Targets</h5>
-            <p class="p-3 bg-light border-start border-4 border-danger small">
-                1. Maintains explicit contrast targets using white-on-wine typography layouts.<br>
-                2. Formulates touch zones exceeding a 43px ergonomic mobile target frame.<br>
-                3. Integrates native <code>disabled</code> attributes to accurately modify pointer interaction contexts.
-            </p>
-
-            <h5 class="mt-4">System Implementation Code</h5>
-<pre><code>&lt;!-- Primary Action --&gt;
+        <pre><code>&lt;!-- Standard Primary --&gt;
 &lt;button class="nidi-button nidi-button--primary"&gt;Default&lt;/button&gt;
 
-&lt;!-- Disabled State --&gt;
+&lt;!-- Disabled Primary --&gt;
 &lt;button class="nidi-button nidi-button--primary" disabled&gt;Default&lt;/button&gt;
 
-&lt;!-- Secondary Outline --&gt;
-&lt;button class="nidi-button nidi-button--secondary"&gt;Default&lt;/button&gt;</code></pre>
-        </main>
+&lt;!-- CTA Callout Variant --&gt;
+&lt;a class="nidi-button nidi-button--primary nidi-button--cta" href="#"&gt;Wanna Know More?&lt;/a&gt;</code></pre>
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <div class="mb-5">
+        <h4>Secondary Button</h4>
+        <div class="card p-4 my-3 bg-white border-0 shadow-sm rounded-4">
+            <div class="d-flex flex-wrap gap-3 align-items-center">
+                <button class="nidi-button nidi-button--secondary">Default</button>
+                <button class="nidi-button nidi-button--secondary is-light" style="background:#240006;">Default</button>
+            </div>
+        </div>
+        <pre><code>&lt;!-- Standard Secondary --&gt;
+&lt;button class="nidi-button nidi-button--secondary"&gt;Default&lt;/button&gt;
+
+&lt;!-- Light Background Inverted Secondary --&gt;
+&lt;button class="nidi-button nidi-button--secondary is-light"&gt;Default&lt;/button&gt;</code></pre>
+    </div>
+
+    <h5>Accessibility Targets</h5>
+    <p class="p-3 bg-light border-start border-4 border-danger small text-muted">
+        Maintains structural high-contrast text ratios matching WCAG AA targets, implements native button state properties, and forces vertical touch padding footprints past 43px.
+    </p>
+</main>
