@@ -1,39 +1,623 @@
-<main class="col-md-9 col-lg-10 px-md-5 py-5">
-    <h2>Landing Page Work Card</h2>
-    <hr class="my-4">
+<!DOCTYPE html>
+<html lang="en">
 
-    <h5>Card Layout Use</h5>
-    <p class="lead-p text-muted">Encapsulates project highlights, case study metadata tags, and descriptive copy blocks cleanly across portfolio landing grid systems.</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards - Design System</title>
+    <!-- Direct Google Fonts Link Imports for Quicksand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/homework.css">
+    <style>
+        /* ========================================================
+     EMBEDDED LOCAL ACCORDION LAYOUT AND COLOR OVERRIDES
+     ======================================================== */
 
-    <div class="my-4" style="max-width: 450px;">
-        <div class="card portfolio-card">
-            <div style="height: 200px; background-color: #EBE6E6;"></div>
-            <div class="card-body p-4">
-                <div class="d-flex gap-2 mb-3">
-                    <span class="badge" style="font-size:11px; font-weight:700; padding:6px 12px; border-radius:6px; background-color: #D6B2B8; color: #6A0011;">UX RESEARCH</span>
-                    <span class="badge" style="font-size:11px; font-weight:700; padding:6px 12px; border-radius:6px; background-color: #D6A598; color: #431505;">UX DESIGN</span>
+        /* Clear global browser blues and text decorations inside nav */
+        .sidebar-wrapper a,
+        .sidebar-wrapper a:hover,
+        .sidebar-wrapper a:focus {
+            text-decoration: none !important;
+            color: inherit !important;
+        }
+
+        /* Fixed Viewport Side Navigation Column */
+        .sidebar-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 16.666667%;
+            height: 100vh;
+            background-color: #FAF6F5 !important;
+            border-right: 1px solid #DCC4CE !important;
+            padding: 0 1rem !important;
+            z-index: 1030;
+            overflow-y: auto;
+        }
+
+        /* Pushes main container out from behind the fixed navbar */
+        main {
+            margin-left: 16.666667%;
+        }
+
+        @media (max-width: 767.98px) {
+            .sidebar-wrapper {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 1rem !important;
+            }
+
+            main {
+                margin-left: 0;
+            }
+        }
+
+        /* Transparent Logo Container Wrapper */
+        .brand-wrapper {
+            background: transparent !important;
+            padding: 0;
+            margin-bottom: 1.5rem !important;
+            text-align: center;
+            display: block;
+            border-bottom: none !important;
+        }
+
+        .nav-logo-frame {
+            width: 72px;
+            height: 72px;
+            margin: 16px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-logo-frame img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* --- Accordion --- */
+        .nav-accordion {
+            border: 1px solid #DCC4CE !important;
+            border-radius: 0.375rem !important;
+            overflow: hidden;
+            background-color: #ffffff !important;
+        }
+
+        .nav-accordion .accordion-item {
+            border: none !important;
+            background-color: #ffffff !important;
+        }
+
+        .nav-accordion .accordion-item:not(:last-child) {
+            border-bottom: 1px solid #DCC4CE !important;
+        }
+
+        .nav-accordion .accordion-button {
+            background-color: #ffffff !important;
+            color: #1F0005 !important;
+            font-size: 1rem;
+            font-weight: 600 !important;
+            padding: 1rem 1.25rem !important;
+            box-shadow: none !important;
+        }
+
+        .nav-accordion .accordion-button:not(.collapsed) {
+            background-color: #EFE4E9 !important;
+            color: #1F0005 !important;
+            box-shadow: none !important;
+        }
+
+        .nav-accordion .accordion-button:focus {
+            box-shadow: none !important;
+        }
+
+        .nav-accordion .accordion-button::after {
+            filter: brightness(0) saturate(100%) invert(6%) sepia(87%) saturate(3061%) hue-rotate(334deg) brightness(50%) contrast(109%) !important;
+        }
+
+        .nav-accordion .accordion-body {
+            padding: 1rem 1.25rem !important;
+            background-color: #ffffff !important;
+        }
+
+        .sidebar-subnav {
+            list-style: disc !important;
+            padding-left: 1.25rem !important;
+            margin: 0 !important;
+        }
+
+        .sidebar-subnav li {
+            color: #6A0011 !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        .sidebar-subnav li:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .sidebar-subnav a {
+            color: #6A0011 !important;
+            font-weight: 500 !important;
+            text-decoration: underline !important;
+            display: inline-block;
+        }
+
+        .sidebar-subnav a:hover,
+        .sidebar-subnav a.active-link {
+            color: #1F0005 !important;
+            font-weight: 700 !important;
+        }
+
+        /* ========================================================
+     MAIN GROUND CANVAS PRESENTATION STYLES
+     ======================================================== */
+
+        /* Quicksand scoped strictly inside preview card components only */
+        .nidi-work-card,
+        .nidi-work-card *,
+        .nidi-contact-card,
+        .nidi-contact-card * {
+            font-family: 'Quicksand', sans-serif !important;
+        }
+
+        /* Custom Unified Component Box Container */
+        .component-spec-container {
+            background: transparent !important;
+            border: 1px solid rgba(36, 0, 6, 0.15) !important;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .component-spec-container pre {
+            margin-bottom: 0;
+            margin-top: 1.5rem;
+        }
+
+        /* ========================================================
+     1. LANDING PAGE WORK CARD
+     ======================================================== */
+        .nidi-work-card {
+            display: inline-flex;
+            padding: 16px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            border: 2px solid #EFE4E9;
+            background: transparent;
+            max-width: 456px;
+            box-sizing: border-box;
+        }
+
+        .nidi-card__thumbnail {
+            width: 420px;
+            height: 241.593px;
+            aspect-ratio: 113 / 65;
+            background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%),
+                linear-gradient(-45deg, #f0f0f0 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #f0f0f0 75%),
+                linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+            background-color: #fafafa;
+            border-radius: 4px;
+        }
+
+        .nidi-card__content-frame {
+            display: flex;
+            width: 420px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            box-sizing: border-box;
+        }
+
+        .nidi-card__tag-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-self: stretch;
+        }
+
+        .nidi-tag {
+            display: flex;
+            width: 104px;
+            padding: 6px 12px;
+            justify-content: center;
+            align-items: center;
+            align-self: stretch;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: #431505 !important;
+        }
+
+        .nidi-tag--1 {
+            background: #D7B1B6;
+        }
+
+        .nidi-tag--2 {
+            background: #CDA198;
+        }
+
+        .nidi-tag--3 {
+            background: #D1BCC0;
+        }
+
+        .nidi-tag--4 {
+            background: #DFB8B2;
+        }
+
+        .nidi-card__text-block {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            gap: 16px;
+            align-self: stretch;
+        }
+
+        .nidi-card__title {
+            color: #000000 !important;
+            font-size: 32px !important;
+            font-style: normal;
+            font-weight: 600 !important;
+            line-height: normal;
+            margin: 0;
+        }
+
+        .nidi-card__description {
+            color: #000000 !important;
+            font-size: 18px !important;
+            font-style: normal;
+            font-weight: 400 !important;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* ========================================================
+     2. CONTACT CARD
+     ======================================================== */
+        .nidi-contact-card {
+            display: flex;
+            width: 460px !important;
+            min-width: 460px !important;
+            max-width: 460px !important;
+            height: 240px !important;
+            padding: 32px 64px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 33px;
+            border-radius: 48px 32px 48px 0;
+            border: 4px solid #B36D78;
+            background: transparent;
+            box-sizing: border-box;
+        }
+
+        .nidi-contact__location-icon {
+            width: 64px;
+            height: 64px;
+            flex-shrink: 0;
+            aspect-ratio: 1 / 1;
+        }
+
+        .nidi-contact__text-frame {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .nidi-contact__label {
+            color: #1E1818 !important;
+            text-align: center;
+            font-size: 24px !important;
+            font-style: normal;
+            font-weight: 500 !important;
+            line-height: normal;
+            margin: 0;
+        }
+
+        .nidi-contact__text-field {
+            color: #1E1818 !important;
+            text-align: center;
+            font-size: 32px !important;
+            font-style: normal;
+            font-weight: 600 !important;
+            line-height: normal;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body style="background: #FAF6F5; color: var(--ink);">
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 sidebar-wrapper">
+                <a href="../index.html" class="brand-wrapper">
+                    <div class="nav-logo-frame">
+                        <img src="../Components/img/wordmark-4.svg" alt="sam nidhi monogram initials mark">
+                    </div>
+                </a>
+                <div class="accordion nav-accordion" id="accordionPanelsStayOpenExample">
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-fFoundations" aria-expanded="false"
+                                aria-controls="panelsStayOpen-fFoundations">
+                                Foundations
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-fFoundations" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <ul class="sidebar-subnav">
+                                    <li><a href="../Foundation/color.html">Color Palette</a></li>
+                                    <li><a href="../Foundation/typography.html">Typography</a></li>
+                                    <li><a href="../Foundation/logo.html">Logos</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-fComponents" aria-expanded="true"
+                                aria-controls="panelsStayOpen-fComponents">
+                                Components
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-fComponents" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <ul class="sidebar-subnav">
+                                    <li><a href="buttons.html">Buttons</a></li>
+                                    <li><a href="cards.html" class="active-link">Cards</a></li>
+                                    <li><a href="navigation.html">Navigation Bar</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-fPages" aria-expanded="false"
+                                aria-controls="panelsStayOpen-fPages">
+                                Page Patterns
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-fPages" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <ul class="sidebar-subnav">
+                                    <li><a href="../Pages/desktop.html">Desktop</a></li>
+                                    <li><a href="../Pages/tablet.html">Tablet</a></li>
+                                    <li><a href="../Pages/mobile.html">Mobile</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <h3 style="font-size: 32px; font-weight: 700; font-family: 'Quicksand', sans-serif;">Rethinking the Grocery</h3>
-                <p class="text-muted small mb-0">Redesigning a grocery delivery app's checkout flow to reduce drop-off by 40% — from discovery research to a tested, shippable prototype.</p>
             </div>
+
+            <!-- Main Content -->
+            <main class="col-md-9 col-lg-10 px-md-5 py-5">
+                <h2>Cards</h2>
+                <hr class="my-4">
+
+                <h4 class="mb-3 mt-4" style="color: var(--wine);">Landing Page Work Card</h4>
+
+                <div class="component-spec-container">
+                    <div class="py-3 d-flex justify-content-start">
+                        <article class="nidi-work-card">
+                            <div class="nidi-card__thumbnail" aria-hidden="true"></div>
+                            <div class="nidi-card__content-frame">
+                                <div class="nidi-card__tag-wrapper">
+                                    <span class="nidi-tag nidi-tag--1">UX Research</span>
+                                    <span class="nidi-tag nidi-tag--2">UX Design</span>
+                                    <span class="nidi-tag nidi-tag--3">UI Design</span>
+                                    <span class="nidi-tag nidi-tag--4">Vibe Coded</span>
+                                </div>
+                                <div class="nidi-card__text-block">
+                                    <h4 class="nidi-card__title">Rethinking the Grocery</h4>
+                                    <p class="nidi-card__description">
+                                        How I redesigned a grocery delivery app's checkout flow to reduce drop-off by
+                                        40% — from discovery research to a tested, shippable prototype.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <pre><code>&lt;!-- Card HTML Component Markup --&gt;
+&lt;article class="nidi-work-card"&gt;
+    &lt;div class="nidi-card__thumbnail"&gt;&lt;/div&gt;
+    &lt;div class="nidi-card__content-frame"&gt;
+        &lt;div class="nidi-card__tag-wrapper"&gt;
+            &lt;span class="nidi-tag nidi-tag--1"&gt;UX Research&lt;/span&gt;
+            &lt;span class="nidi-tag nidi-tag--2"&gt;UX Design&lt;/span&gt;
+            &lt;span class="nidi-tag nidi-tag--3"&gt;UI Design&lt;/span&gt;
+            &lt;span class="nidi-tag nidi-tag--4"&gt;Vibe Coded&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="nidi-card__text-block"&gt;
+            &lt;h4 class="nidi-card__title"&gt;Rethinking the Grocery&lt;/h4&gt;
+            &lt;p class="nidi-card__description"&gt;
+                How I redesigned a grocery delivery app’s checkout flow to reduce drop-off by 40% — from discovery research to a tested, shippable prototype.
+            &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/article&gt;
+
+&lt;!-- Card CSS Layout Tokens --&gt;
+.nidi-work-card {
+    display: inline-flex;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    border: 2px solid #EFE4E9;
+}
+
+.nidi-card__thumbnail {
+    width: 420px;
+    height: 241.593px;
+    aspect-ratio: 113 / 65;
+    background: url(&lt;path-to-image&gt;) lightgray 50% / cover no-repeat;
+}
+
+.nidi-card__content-frame {
+    display: flex;
+    width: 420px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.nidi-tag {
+    display: flex;
+    width: 104px;
+    padding: 6px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 6px;
+}
+
+.nidi-tag--1 { background: #D7B1B6; }
+.nidi-tag--2 { background: #CDA198; }
+.nidi-tag--3 { background: #D1BCC0; }
+.nidi-tag--4 { background: #DFB8B2; }
+
+.nidi-card__text-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+}
+
+.nidi-card__title {
+    color: #000;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.nidi-card__description {
+    color: #000;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}</code></pre>
+
+                </div>
+
+                <h4 class="mb-3 mt-5" style="color: var(--wine);">Contact Card</h4>
+
+                <div class="component-spec-container">
+                    <div class="py-3 table-responsive d-flex justify-content-start">
+                        <div class="nidi-contact-card d-flex">
+                            <div class="nidi-contact__location-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"
+                                    fill="none">
+                                    <path
+                                        d="M32 0C18.6625 0 8 10.6625 8 24C8 28.6125 9.375 32.175 11.7625 35.7875L29.475 62.6625C30.0125 63.475 30.9375 64 32 64C33.0625 64 34 63.4625 34.525 62.6625L52.2375 35.7875C54.625 32.175 56 28.6125 56 24C56 10.6625 45.3375 0 32 0ZM32 37.325C24.6375 37.325 18.6625 31.35 18.6625 23.975C18.6625 16.6 24.6375 10.625 32 10.625C39.3625 10.625 45.3375 16.6 45.3375 23.975C45.3375 31.35 39.3625 37.325 32 37.325Z"
+                                        fill="#B36D78" />
+                                </svg>
+                            </div>
+                            <div class="nidi-contact__text-frame">
+                                <h5 class="nidi-contact__label">Location</h5>
+                                <h4 class="nidi-contact__text-field">Chicago, IL</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Explicit Code Blocks Under The Contact Card Preview -->
+                    <pre><code>&lt;!-- Contact Card HTML Component Markup --&gt;
+&lt;div class="nidi-contact-card"&gt;
+    &lt;div class="nidi-contact__location-icon"&gt;
+        &lt;svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none"&gt;
+            &lt;path d="M32 0C18.6625 0 8 10.6625 8 24C8 28.6125 9.375 32.175 11.7625 35.7875L29.475 62.6625C30.0125 63.475 30.9375 64 32 64C33.0625 64 34 63.4625 34.525 62.6625L52.2375 35.7875C54.625 32.175 56 28.6125 56 24C56 10.6625 45.3375 0 32 0ZM32 37.325C24.6375 37.325 18.6625 31.35 18.6625 23.975C18.6625 16.6 24.6375 10.625 32 10.625C39.3625 10.625 45.3375 16.6 45.3375 23.975C45.3375 31.35 39.3625 37.325 32 37.325Z" fill="#B36D78"/&gt;
+        &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;div class="nidi-contact__text-frame"&gt;
+        &lt;h5 class="nidi-contact__label"&gt;Location&lt;/h5&gt;
+        &lt;h4 class="nidi-contact__text-field"&gt;Chicago, IL&lt;/h4&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Contact Card CSS Layout Tokens --&gt;
+.nidi-contact-card {
+    display: flex;
+    width: 920px;
+    height: 240px;
+    padding: 32px 64px;
+    flex-direction: column;
+    align-items: center;
+    gap: 33px;
+    border-radius: 48px 32px 48px 0;
+    border: 4px solid #B36D78;
+}
+
+.nidi-contact__location-icon {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    aspect-ratio: 1 / 1;
+}
+
+.nidi-contact__text-frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+}
+
+.nidi-contact__label {
+    color: #1E1818;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.nidi-contact__text-field {
+    color: #1E1818;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+}</code></pre>
+
+                </div>
+
+                <h5>Accessibility Parameters</h5>
+                <p class="p-3 bg-light border-start border-4 border-danger small text-muted">
+                    Card layout elements use native document semantic heading assignments to keep hierarchy clear. Image
+                    components preserve explicit alternative placeholder descriptions, and text-to-background contrast
+                    metrics comply completely with WCAG AAA layout specifications.
+                </p>
+            </main>
+
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 
-    <h5 class="mt-4">Implementation Code</h5>
-<pre><code>&lt;div class="card portfolio-card"&gt;
-  &lt;div class="card-img-placeholder" style="height: 200px; background: #EBE6E6;"&gt;&lt;/div&gt;
-  &lt;div class="card-body p-4"&gt;
-    &lt;div class="d-flex gap-2 mb-3"&gt;
-      &lt;span class="badge tag-ux-research"&gt;UX RESEARCH&lt;/span&gt;
-      &lt;span class="badge tag-ux-design"&gt;UX DESIGN&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;h3&gt;Rethinking the Grocery&lt;/h3&gt;
-    &lt;p&gt;Redesigning a grocery delivery app's checkout flow...&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-
-    <h5 class="mt-4">Accessibility Parameters</h5>
-    <p class="p-3 bg-light border-start border-4 border-danger small text-muted">
-        Employs structural relative padding scales for clean resizing transitions, avoids using simple color changes alone to present individual tag categories, and maps text elements linearly for screen readers.
-    </p>
-</main>
+</html>

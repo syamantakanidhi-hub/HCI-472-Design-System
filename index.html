@@ -1,88 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Syamantaka Nidhi - Design System</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>sam nidhi - Design System</title>
+
+    <!-- Browser Tab Icon -->
+    <link rel="icon" type="image/svg+xml" href="Components/img/icon-1.svg">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/homework.css">
+
+    <style>
+        /* ========================================================
+           EMBEDDED LOCAL ACCORDION LAYOUT AND COLOR OVERRIDES
+           ======================================================== */
+
+        /* Force font family alignment inside sidebar container */
+        .sidebar-wrapper, .sidebar-wrapper button, .sidebar-wrapper a {
+            font-family: 'Quicksand', sans-serif !important;
+        }
+
+        /* Clear global browser blues and text decorations */
+        .sidebar-wrapper a, .sidebar-wrapper a:hover, .sidebar-wrapper a:focus {
+            text-decoration: none !important;
+            color: inherit !important;
+        }
+
+        /* Fixed Viewport Side Navigation Column */
+        .sidebar-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 16.666667%; /* Matches Bootstrap col-md-2 width parameter */
+            height: 100vh;
+            background-color: #FAF6F5 !important;
+            border-right: 1px solid #DCC4CE !important; /* Overhauled border stroke mapping */
+            padding: 0 1rem !important;
+            z-index: 1030;
+            overflow-y: auto;
+        }
+
+        /* Pushes main container out from behind the fixed navbar */
+        main {
+            margin-left: 16.666667%;
+        }
+
+        @media (max-width: 767.98px) {
+            .sidebar-wrapper { position: relative; width: 100%; height: auto; padding: 1rem !important; }
+            main { margin-left: 0; }
+        }
+
+        /* Transparent Logo Container Wrapper (White Box Removed) */
+        .brand-wrapper {
+            background: transparent !important;    
+            padding: 0;
+            margin-bottom: 1.5rem !important; 
+            text-align: center;
+            display: block;
+            border-bottom: none !important;
+        }
+
+        /* Exact Requested Frame Properties and Spacing Metrics */
+        .nav-logo-frame {
+            width: 72px;
+            height: 72px;
+            margin: 16px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nav-logo-frame img { 
+            max-width: 100%; 
+            max-height: 100%; 
+            object-fit: contain; 
+        }
+
+        /* --- Classic Rounded Accordion Outer Wrapper Frame --- */
+        .nav-accordion {
+            border: 1px solid #DCC4CE !important; /* Swapped outer frame border to DCC4CE */
+            border-radius: 0.375rem !important;
+            overflow: hidden;
+            background-color: #ffffff !important;
+        }
+
+        .nav-accordion .accordion-item {
+            border: none !important;
+            background-color: #ffffff !important;
+        }
+
+        .nav-accordion .accordion-item:not(:last-child) {
+            border-bottom: 1px solid #DCC4CE !important; /* Divider borders mapped to DCC4CE */
+        }
+
+        /* --- Primary Header Collapse Select Buttons --- */
+        .nav-accordion .accordion-button {
+            background-color: #ffffff !important; /* Default background stays clean white */
+            color: #1F0005 !important;            /* Header typography swapped to 1F0005 */
+            font-size: 1rem;
+            font-weight: 600 !important;
+            padding: 1rem 1.25rem !important;
+            box-shadow: none !important;
+        }
+
+        /* Active Expanded Folder View State: Background swapped to EFE4E9 */
+        .nav-accordion .accordion-button:not(.collapsed) {
+            background-color: #EFE4E9 !important; /* Swapped active background color to EFE4E9 */
+            color: #1F0005 !important;            /* Retains text color 1F0005 */
+            box-shadow: none !important;
+        }
+
+        .nav-accordion .accordion-button:focus {
+            box-shadow: none !important;
+        }
+
+        /* Forces internal arrow canvas indicator asset to look clean dark 1F0005 */
+        .nav-accordion .accordion-button::after {
+            filter: brightness(0) saturate(100%) invert(6%) sepia(87%) saturate(3061%) hue-rotate(334deg) brightness(50%) contrast(109%) !important;
+        }
+
+        /* --- Sub-navigation Nested Accordion Body Area --- */
+        .nav-accordion .accordion-body {
+            padding: 1rem 1.25rem !important;
+            background-color: #ffffff !important; /* Keeps core white internal area view */
+        }
+
+        .sidebar-subnav {
+            list-style: disc !important; /* Standard layout bullet points */
+            padding-left: 1.25rem !important;
+            margin: 0 !important;
+        }
+
+        .sidebar-subnav li {
+            color: #6A0011 !important; /* Bullet dots inherit your active link tone */
+            margin-bottom: 0.5rem !important;
+        }
+        .sidebar-subnav li:last-child { margin-bottom: 0 !important; }
+
+        /* Document subfolder text link tags: Swapped to 6A0011 with an underline */
+        .sidebar-subnav a {
+            color: #6A0011 !important; /* Text links swapped to 6A0011 */
+            font-weight: 500 !important;
+            text-decoration: underline !important; /* Preserves requested underline formatting */
+            display: inline-block;
+        }
+
+        .sidebar-subnav a:hover,
+        .sidebar-subnav a.active-link {
+            color: #1F0005 !important; /* Hover or pressed active view highlight */
+            font-weight: 700 !important;
+        }
+
+        /* Right canvas typography spacing cleanups */
+        .welcome-section h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .welcome-section p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: #1F1718;
+        }
+    </style>
 </head>
-<body style="background: #FAF6F5; color: var(--ink);">
 
-<div class="container-fluid">
-    <div class="row">
-        <!-- Sidebar Navigation -->
-        <div class="col-md-3 col-lg-2 sidebar-wrapper sticky-top">
-            <div class="brand-wrapper">
-                <h4 style="font-weight:700; letter-spacing:-1px;">sam nidhi</h4>
-                <span class="badge bg-dark rounded-pill">HCI 472</span>
-            </div>
-            
-            <div class="accordion nav-accordion" id="systemNavBlock">
-                <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f-foundations">Foundation</button></h2>
-                    <div id="f-foundations" class="accordion-collapse collapse" data-bs-parent="#systemNavBlock">
-                        <ul class="sidebar-subnav">
-                            <li><a href="Foundation/color.html">Color Palette</a></li>
-                            <li><a href="Foundation/typography.html">Typography</a></li>
-                            <li><a href="Foundation/logo.html">Logo System</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f-components">Components</button></h2>
-                    <div id="f-components" class="accordion-collapse collapse" data-bs-parent="#systemNavBlock">
-                        <ul class="sidebar-subnav">
-                            <li><a href="Components/buttons.html">Buttons</a></li>
-                            <li><a href="Components/cards.html">Cards</a></li>
-                            <li><a href="Components/navigation.html">Navigation</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f-pages">Pages</button></h2>
-                    <div id="f-pages" class="accordion-collapse collapse" data-bs-parent="#systemNavBlock">
-                        <ul class="sidebar-subnav">
-                            <li><a href="Pages/desktop.html">Desktop Layout</a></li>
-                            <li><a href="Pages/tablet.html">Tablet Layout</a></li>
-                            <li><a href="Pages/mobile.html">Mobile Layout</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+<body style="background: #FAF6F5;">
 
-        <!-- System Introduction Canvas -->
-        <main class="col-md-9 col-lg-10 px-md-5 py-5">
-            <div class="mb-5">
-                <!-- Embedded Live System Hero View -->
-                <section class="nidi-hero text-start">
-                    <div class="nidi-portrait" aria-hidden="true"></div>
-                    <div>
-                        <p class="nidi-hero__eyebrow">Hey, I'm</p>
-                        <h1 class="nidi-hero__title">Sam Nidhi</h1>
-                        <p class="nidi-hero__copy">
-                            A UX Designer skilled in user research, ideating, and testing.
-                            I create intuitive digital experiences rooted in empathy and critical thinking.
-                        </p>
-                        <a class="nidi-button nidi-button--primary nidi-button--cta" href="#framework-details">
-                            Wanna Know More?
-                        </a>
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Persistent Fixed Sidebar Column Layout Container Panel -->
+            <div class="col-md-3 col-lg-2 sidebar-wrapper">
+                
+                <!-- Clickable Logo Area Points Back to Home Dashboard View -->
+                <a href="index.html" class="brand-wrapper">
+                    <div class="nav-logo-frame">
+                        <img src="Components/img/wordmark-4.svg" alt="sam nidhi logo mark">
                     </div>
-                </section>
+                </a>
+
+                <!-- Custom-Colored Classic Stay-Open Accordion Container -->
+                <div class="accordion nav-accordion" id="accordionPanelsStayOpenExample">
+
+                    <!-- Foundations Folder Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-fFoundations" aria-expanded="true"
+                                aria-controls="panelsStayOpen-fFoundations">
+                                Foundations
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-fFoundations" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <ul class="sidebar-subnav">
+                                    <li><a href="Foundation/color.html">Color Palette</a></li>
+                                    <li><a href="Foundation/typography.html">Typography</a></li>
+                                    <li><a href="Foundation/logo.html">Logos</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Components Folder Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-fComponents" aria-expanded="false"
+                                aria-controls="panelsStayOpen-fComponents">
+                                Components
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-fComponents" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <ul class="sidebar-subnav">
+                                    <li><a href="Components/buttons.html">Buttons</a></li>
+                                    <li><a href="Components/cards.html">Cards</a></li>
+                                    <li><a href="Components/navigation.html">Navigation Bar</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Page Patterns Folder Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-fPages" aria-expanded="false"
+                                aria-controls="panelsStayOpen-fPages">
+                                Page Patterns
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-fPages" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <ul class="sidebar-subnav">
+                                    <li><a href="Pages/desktop.html">Desktop</a></li>
+                                    <li><a href="Pages/tablet.html">Tablet</a></li>
+                                    <li><a href="Pages/mobile.html">Mobile</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
-            <div id="framework-details" style="max-width: 800px;" class="mt-5 pt-3">
-                <h2 style="color: var(--wine);">Design System Overview</h2>
-                <p class="lead-p">
-                    Moving into design from a background in architecture, I view generative AI as a collaborative thinking partner and design systems as living blueprints for empathy. My design aesthetic avoids rigid, corporate future-facing trends. Instead, I practice a philosophy centered around <strong>playful, fluid storytelling, warmth, and imperfect, organic line-work.</strong>
+            <!-- Right-Side Main Text Welcome Section Content -->
+            <main class="col-md-9 col-lg-10 px-md-5 py-5 welcome-section">
+                <h1>Hey, I'm Sam Nidi</h1>
+
+                <p>
+                    UX Designer with 4+ years of design experience across digital products and built environments.
+                    Skilled in end-to-end UX, research, systems thinking, and cross-functional execution.
+                    Currently completing an MS in Human-Computer Interaction at DePaul University.
                 </p>
-            </div>
-        </main>
-    </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+                <p>
+                    This design system website documents the foundational blocks and repeatable interface units
+                    powering my digital ecosystem. Use the left-hand navigation menu tabs to explore individual
+                    brand foundations—including color palettes, typography specs, and logo variants—as well as
+                    reusable UI components and responsive multi-platform layout frames.
+                </p>
+            </main>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

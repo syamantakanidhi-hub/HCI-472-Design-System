@@ -1,40 +1,411 @@
-<main class="col-md-9 col-lg-10 px-md-5 py-5">
-    <h2>Navigation bar</h2>
-    <hr class="my-4">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar - Design System</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/homework.css">
+    
+    <style>
+        /* ========================================================
+           EMBEDDED LOCAL ACCORDION LAYOUT AND COLOR OVERRIDES
+           ======================================================== */
 
-    <div class="card p-4 my-4 bg-light border-0 shadow-sm rounded-4">
-        <h5>Live Navigation Module</h5>
-        <div class="py-2">
-            <nav class="nidi-nav" aria-label="Primary navigation">
-                <a class="nidi-logo" href="#">sn</a>
+        /* Clear global browser blues and text decorations inside nav */
+        .sidebar-wrapper a, .sidebar-wrapper a:hover, .sidebar-wrapper a:focus {
+            text-decoration: none !important;
+            color: inherit !important;
+        }
 
-                <div class="nidi-nav__links">
-                    <a class="nidi-nav__link" href="#work" aria-current="page">Work</a>
-                    <a class="nidi-nav__link" href="#about">About</a>
-                    <a class="nidi-nav__link" href="#contact">Contact</a>
+        /* Fixed Viewport Side Navigation Column */
+        .sidebar-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 16.666667%;
+            height: 100vh;
+            background-color: #FAF6F5 !important;
+            border-right: 1px solid #DCC4CE !important;
+            padding: 0 1rem !important;
+            z-index: 1030;
+            overflow-y: auto;
+        }
+
+        /* Pushes main container out from behind the fixed navbar */
+        main {
+            margin-left: 16.666667%;
+        }
+
+        @media (max-width: 767.98px) {
+            .sidebar-wrapper {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 1rem !important;
+            }
+            main {
+                margin-left: 0;
+            }
+        }
+
+        /* Transparent Logo Container Wrapper */
+        .brand-wrapper {
+            background: transparent !important;
+            padding: 0;
+            margin-bottom: 1.5rem !important;
+            text-align: center;
+            display: block;
+            border-bottom: none !important;
+        }
+
+        .nav-logo-frame {
+            width: 72px;
+            height: 72px;
+            margin: 16px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-logo-frame img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* --- Accordion --- */
+        .nav-accordion {
+            border: 1px solid #DCC4CE !important;
+            border-radius: 0.375rem !important;
+            overflow: hidden;
+            background-color: #ffffff !important;
+        }
+
+        .nav-accordion .accordion-item {
+            border: none !important;
+            background-color: #ffffff !important;
+        }
+
+        .nav-accordion .accordion-item:not(:last-child) {
+            border-bottom: 1px solid #DCC4CE !important;
+        }
+
+        .nav-accordion .accordion-button {
+            background-color: #ffffff !important;
+            color: #1F0005 !important;
+            font-size: 1rem;
+            font-weight: 600 !important;
+            padding: 1rem 1.25rem !important;
+            box-shadow: none !important;
+        }
+
+        .nav-accordion .accordion-button:not(.collapsed) {
+            background-color: #EFE4E9 !important;
+            color: #1F0005 !important;
+            box-shadow: none !important;
+        }
+
+        .nav-accordion .accordion-button:focus {
+            box-shadow: none !important;
+        }
+
+        .nav-accordion .accordion-button::after {
+            filter: brightness(0) saturate(100%) invert(6%) sepia(87%) saturate(3061%) hue-rotate(334deg) brightness(50%) contrast(109%) !important;
+        }
+
+        .nav-accordion .accordion-body {
+            padding: 1rem 1.25rem !important;
+            background-color: #ffffff !important;
+        }
+
+        .sidebar-subnav {
+            list-style: disc !important;
+            padding-left: 1.25rem !important;
+            margin: 0 !important;
+        }
+
+        .sidebar-subnav li {
+            color: #6A0011 !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        .sidebar-subnav li:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .sidebar-subnav a {
+            color: #6A0011 !important;
+            font-weight: 500 !important;
+            text-decoration: underline !important;
+            display: inline-block;
+        }
+
+        .sidebar-subnav a:hover,
+        .sidebar-subnav a.active-link {
+            color: #1F0005 !important;
+            font-weight: 700 !important;
+        }
+
+        /* Custom Unified Component Box Container */
+        .component-spec-container {
+            background: transparent !important; /* No Fill */
+            border: 1px solid rgba(36, 0, 6, 0.15) !important; /* Thin Stroke */
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .component-spec-container pre {
+            margin-bottom: 0;
+            margin-top: 1.5rem;
+        }
+
+        /* ========================================================
+           DESKTOP NAVIGATION BAR FLUID WIDTH COMPONENT
+           ======================================================== */
+        .nidi-desktop-navbar {
+            display: flex;
+            width: 100%; /* Fit to width of the frame natively */
+            max-width: 100%;
+            padding: 24px 40px; /* var(--5, 24px) var(--3, 40px) */
+            justify-content: space-between;
+            align-items: center;
+            background: #FFFFFF;
+            box-sizing: border-box;
+            border: 1px solid rgba(0, 0, 0, 0.05); /* Soft baseline border stroke */
+        }
+
+        /* Initials Token Wrapper */
+        .nidi-nav__initials {
+            width: 56px;
+            height: 56px; /* var(--1, 56px) */
+            flex-shrink: 0;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nidi-nav__initials svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* Link Menu Frame */
+        .nidi-nav__menu-frame {
+            display: flex;
+            padding: 12px;
+            align-items: center;
+            gap: 32px; /* var(--4, 32px) */
+            list-style: none;
+            margin: 0;
+        }
+
+        /* Nav Item Link Bases */
+        .nidi-nav__link {
+            text-decoration: none;
+            font-family: 'Inter', sans-serif !important;
+            font-style: normal;
+            transition: all 0.15s ease-in-out;
+            display: inline-block;
+            
+            /* Standard State Tokens */
+            color: #370009 !important;
+            font-size: 18px !important; /* var(--4-point-18, 18px) */
+            font-weight: 500 !important;
+            line-height: normal;
+        }
+
+        /* Selected Tab State / Hover Tokens */
+        .nidi-nav__link:hover,
+        .nidi-nav__link.is-active {
+            color: #6A0011 !important;
+            font-size: 20px !important; /* var(--6, 20px) */
+            font-weight: 700 !important;
+            line-height: normal;
+        }
+    </style>
+</head>
+<body style="background: #FAF6F5; color: var(--ink); font-family: system-ui, -apple-system, sans-serif;">
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Persistent Sidebar Grid Navigation Panel -->
+        <div class="col-md-3 col-lg-2 sidebar-wrapper">
+            <a href="../index.html" class="brand-wrapper">
+                <div class="nav-logo-frame">
+                    <!-- Fixed path routing structure layout depth for the inner folder -->
+                    <img src="../Components/img/wordmark-4.svg" alt="sam nidi monogram initials mark">
+                </div>
+            </a>
+
+            <div class="accordion nav-accordion" id="accordionPanelsStayOpenExample">
+
+                <!-- Foundations Folder Section -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-fFoundations" aria-expanded="false"
+                            aria-controls="panelsStayOpen-fFoundations">
+                            Foundations
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-fFoundations" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <ul class="sidebar-subnav">
+                                <li><a href="../Foundation/color.html">Color Palette</a></li>
+                                <li><a href="../Foundation/typography.html">Typography</a></li>
+                                <li><a href="../Foundation/logo.html">Logos</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
-                <button class="nidi-menu" type="button" aria-label="Open menu">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-                        <path d="M5 7h14M5 12h14M5 17h14"/>
-                    </svg>
-                </button>
-            </nav>
+                <!-- Components Folder Section (Active & Open on this page view) -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-fComponents" aria-expanded="true"
+                            aria-controls="panelsStayOpen-fComponents">
+                            Components
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-fComponents" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <ul class="sidebar-subnav">
+                                <li><a href="buttons.html">Buttons</a></li>
+                                <li><a href="cards.html">Cards</a></li>
+                                <!-- Moved active highlighting state state to exclusively target Navigation Bar anchor link -->
+                                <li><a href="navigation.html" class="active-link">Navigation Bar</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Patterns Folder Section -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-fPages" aria-expanded="false"
+                            aria-controls="panelsStayOpen-fPages">
+                            Page Patterns
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-fPages" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <ul class="sidebar-subnav">
+                                <li><a href="../Pages/desktop.html">Desktop</a></li>
+                                <li><a href="../Pages/tablet.html">Tablet</a></li>
+                                <li><a href="../Pages/mobile.html">Mobile</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
+
+        <main class="col-md-9 col-lg-10 px-md-5 py-5">
+            <h2>Navigation bar</h2>
+            <hr class="my-4">
+
+            <h4 class="mb-3">Desktop Framework Bar</h4>
+            <div class="component-spec-container">
+                <div class="py-3">
+                    
+                    <nav class="nidi-desktop-navbar">
+                        <div class="nidi-nav__initials">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
+                                <path d="M0 8.72727C0 3.90733 3.90733 0 8.72727 0H47.2727C52.0927 0 56 3.90733 56 8.72727V47.2727C56 52.0927 52.0927 56 47.2727 56H8.72727C3.90733 56 0 52.0927 0 47.2727V8.72727Z" fill="#DCC4CF"/>
+                                <path d="M19.184 35.968C18.3181 35.968C17.6179 35.6916 17.0836 35.1389C16.5493 34.5677 16.2822 33.8953 16.2822 33.1214C16.2822 32.366 16.5493 31.6843 17.0836 31.0763C17.6364 30.4683 18.447 29.8511 19.5156 29.2247L20.5105 28.672C20.2342 28.193 19.8749 27.6771 19.4327 27.1243C19.009 26.5532 18.4747 25.9268 17.8298 25.2451C16.9823 26.3321 15.84 27.7047 14.4029 29.3629C12.9842 31.0027 11.1787 33.0293 8.98618 35.4429C8.70981 35.7561 8.3966 35.8943 8.04654 35.8574C7.7149 35.839 7.42012 35.7193 7.16218 35.4982C6.90424 35.2586 6.75684 34.9731 6.72 34.6414C6.66472 34.3098 6.77527 33.9874 7.05163 33.6742C9.37309 31.1132 11.2431 28.976 12.6618 27.2625C14.0805 25.5491 15.1767 24.1673 15.9505 23.1171C15.5821 22.638 15.2688 22.113 15.0109 21.5418C14.7714 20.9706 14.6516 20.335 14.6516 19.6349C14.6516 18.8242 14.8082 18.1702 15.1214 17.6727C15.4347 17.1753 15.8308 16.816 16.3098 16.5949C16.8073 16.3554 17.2955 16.2356 17.7745 16.2356C18.2167 16.2356 18.6589 16.337 19.1011 16.5396C19.5617 16.7423 19.9394 17.0831 20.2342 17.5622C20.529 18.0412 20.6764 18.686 20.6764 19.4967C20.6764 19.9757 20.6027 20.4732 20.4553 20.9891C20.3079 21.505 19.967 22.1866 19.4327 23.0342C19.488 23.0894 19.5525 23.1723 19.6262 23.2829C20.2895 24.0014 20.9159 24.7016 21.5055 25.3833C22.1135 26.065 22.6109 26.7374 22.9978 27.4007C23.9927 26.9217 24.9876 26.415 25.9825 25.8807C26.9775 25.3464 27.9171 24.7384 28.8015 24.0567C29.7042 23.3566 30.5057 22.5367 31.2058 21.5971C31.4638 21.2654 31.7585 21.0996 32.0902 21.0996C32.4218 21.0812 32.7258 21.1733 33.0022 21.376C33.2785 21.5787 33.4628 21.8458 33.5549 22.1774C33.647 22.4906 33.5641 22.8131 33.3062 23.1447C32.4218 24.3423 31.4361 25.3556 30.3491 26.1847C29.2805 27.0138 28.1935 27.7231 27.088 28.3127C25.9825 28.9023 24.9231 29.4366 23.9098 29.9156C24.0204 30.8184 23.873 31.758 23.4676 32.7345C23.0623 33.711 22.4727 34.494 21.6989 35.0836C20.9435 35.6732 20.1052 35.968 19.184 35.968ZM17.6087 20.6298C17.8298 20.2245 17.9588 19.9389 17.9956 19.7731C18.0509 19.6073 18.0785 19.5151 18.0785 19.4967C18.0785 19.0361 18.0325 18.815 17.9404 18.8334C17.8667 18.8334 17.8114 18.8334 17.7745 18.8334C17.535 18.8334 17.3968 18.9348 17.36 19.1374C17.3231 19.3217 17.3047 19.4875 17.3047 19.6349C17.3047 19.9297 17.4061 20.2613 17.6087 20.6298ZM19.184 33.3702C19.3867 33.3702 19.6815 33.2412 20.0684 32.9833C20.4737 32.7069 20.7961 32.2923 21.0356 31.7396C21.0909 31.5922 21.137 31.4356 21.1738 31.2698L20.8422 31.4356C20.271 31.7857 19.8381 32.0528 19.5433 32.2371C19.2669 32.4213 19.0827 32.5595 18.9905 32.6516C18.8984 32.7437 18.8524 32.8174 18.8524 32.8727C18.8708 32.928 18.88 33.0109 18.88 33.1214C18.88 33.2873 18.9168 33.3702 18.9905 33.3702C19.0827 33.3702 19.1471 33.3702 19.184 33.3702Z" fill="#370009"/>
+                                <path d="M43.4064 35.7469C42.3562 35.7469 41.4719 35.406 40.7533 34.7243C40.0532 34.0242 39.7031 33.0938 39.7031 31.9331C39.7031 31.3435 39.7768 30.6802 39.9242 29.9433C40.0716 29.2063 40.2466 28.4693 40.4493 27.7323C40.652 26.977 40.8454 26.3045 41.0297 25.7149C41.2139 25.1253 41.3429 24.7016 41.4166 24.4436C41.6561 23.6145 41.7482 23.0157 41.693 22.6473C41.6561 22.2603 41.5363 22.0116 41.3337 21.9011C41.131 21.7905 40.8915 21.7353 40.6151 21.7353C40.1361 21.7353 39.6479 21.9011 39.1504 22.2327C38.653 22.5643 38.1186 23.1908 37.5475 24.112C37.3633 24.4252 37.0869 24.9042 36.7184 25.5491C36.3499 26.1939 35.9354 26.9401 35.4748 27.7876C35.0326 28.6351 34.572 29.5103 34.093 30.4131C33.6139 31.3159 33.1625 32.191 32.7388 33.0385C32.315 33.8676 31.9465 34.5954 31.6333 35.2218C31.4306 35.6271 31.1266 35.8482 30.7213 35.8851C30.316 35.9403 29.9475 35.8482 29.6159 35.6087C29.3026 35.3508 29.1553 35.0007 29.1737 34.5585C29.3211 22.495 29.5422 30.4315 29.837 28.368C30.1317 26.286 30.5002 24.2133 30.9424 22.1498C31.0345 21.7076 31.228 21.4128 31.5228 21.2654C31.836 21.0996 32.1584 21.0628 32.49 21.1549C32.8401 21.247 33.1257 21.4313 33.3468 21.7076C33.5679 21.984 33.6323 22.3156 33.5402 22.7025C33.356 23.5316 33.181 24.3699 33.0151 25.2174C32.8677 26.0465 32.7296 26.8664 32.6006 27.6771C33.1717 26.6085 33.6968 25.632 34.1759 24.7476C34.6733 23.8448 35.0602 23.1723 35.3366 22.7302C35.9814 21.6984 36.7368 20.8417 37.6028 20.16C38.4871 19.4783 39.4913 19.1374 40.6151 19.1374C41.7022 19.1374 42.5405 19.423 43.13 19.9942C43.7196 20.5653 44.0789 21.3115 44.2079 22.2327C44.3368 23.1355 44.2539 24.112 43.9591 25.1622C43.8854 25.4385 43.7565 25.8807 43.5722 26.4887C43.4064 27.0783 43.2314 27.7323 43.0471 28.4509C42.8629 29.151 42.6971 29.8235 42.5497 30.4683C42.4207 31.0948 42.3562 31.583 42.3562 31.9331C42.3562 32.2279 42.4115 32.5042 42.522 32.7622C42.651 33.0201 42.9458 33.1491 43.4064 33.1491C43.5722 33.1491 43.7841 33.103 44.042 33.0109C44.3 32.9188 44.65 32.6424 45.0922 32.1818C45.5344 31.7028 46.1148 30.9197 46.8333 29.8327C47.0728 29.4826 47.3584 29.2892 47.69 29.2523C48.0217 29.2155 48.3257 29.2984 48.602 29.5011C48.8968 29.6853 49.0903 29.9433 49.1824 30.2749C49.293 30.5881 49.2285 30.9197 48.9889 31.2698C47.9019 32.9096 46.9254 34.0703 46.0595 34.752C45.212 35.4153 44.3276 35.7469 43.4064 35.7469Z" fill="#370009"/>
+                                <path d="M18.9905 33.3702C18.9354 33.37 18.9003 33.3233 18.8866 33.2299L18.88 33.1214C18.88 33.0109 18.8708 32.928 18.8524 32.8727C18.8524 32.8313 18.8781 32.7793 18.9299 32.7172L18.9905 32.6516C19.0827 32.5595 19.2669 32.4213 19.5433 32.2371C19.8381 32.0528 20.271 31.7857 20.8422 31.4356L21.1738 31.2698C21.137 31.4356 21.0909 31.5922 21.0356 31.7396C20.7961 32.2923 20.4737 32.7069 20.0684 32.9833L19.9278 33.0737C19.6094 33.2712 19.3614 33.3701 19.184 33.3702H18.9905ZM42.3562 31.9331C42.3562 31.583 42.4207 31.0948 42.5497 30.4683C42.6971 29.8235 42.8629 29.151 43.0471 28.4509C43.2314 27.7323 43.4064 27.0783 43.5722 26.4887C43.7565 25.8807 43.8854 25.4385 43.9591 25.1622C44.2171 24.2431 44.3125 23.3806 44.2459 22.5744L44.2079 22.2327C44.087 21.3692 43.7637 20.6594 43.2381 20.1035L43.13 19.9942C42.5774 19.4587 41.8061 19.1739 40.8163 19.1404L40.6151 19.1374C39.4913 19.1374 38.4871 19.4783 37.6028 20.16C36.7368 20.8417 35.9814 21.6984 35.3366 22.7302L35.1089 23.1049C34.8601 23.523 34.549 24.0704 34.1759 24.7476L32.6006 27.6771C32.7296 26.8664 32.8677 26.0465 33.0151 25.2174C33.1773 24.3886 33.3481 33.5682 33.5279 22.7569C33.5279 22.5899 33.605 22.4262 33.5741 22.264C33.5541 22.0588 33.4791 21.8731 33.3468 21.7076C33.2989 21.6478 33.2473 21.5929 33.1934 21.5417C33.19 21.5383 33.1862 21.5352 33.1827 21.5318C33.176 21.5255 33.1697 21.5188 33.1629 21.5126C33.1131 21.4646 33.06 21.4184 33.0022 21.376C32.7258 21.1733 32.4218 21.0812 32.0902 21.0996C31.9473 21.0996 31.812 21.1321 31.6827 21.1937C31.6294 21.2143 31.5756 21.2375 31.5228 21.2654C31.316 21.3688 31.1605 21.5454 31.0535 21.7939C30.3897 22.651 29.6402 23.4063 28.8015 24.0567C27.9171 24.7384 26.9775 25.3464 25.9825 25.8807C24.9876 26.415 23.9927 26.9217 22.9978 27.4007L22.8475 27.1518C22.5366 26.6525 22.1636 26.148 21.7282 25.6383L21.5055 25.3833C20.9159 24.7016 20.2895 24.0014 19.6262 23.2829C19.5525 23.1723 19.488 23.0894 19.4327 23.0342C19.9002 22.2926 20.2196 21.6778 20.3908 21.1902L20.4553 20.9891C20.5842 20.5377 20.6567 20.1005 20.6728 19.6774L20.6764 19.4967C20.6764 18.7874 20.5632 18.2052 20.3376 17.7498L20.2342 17.5622C19.9394 17.0831 19.5617 16.7423 19.1011 16.5396C18.6589 16.337 18.2167 16.2356 17.7745 16.2356C17.2955 16.2356 16.8073 16.3554 16.3098 16.5949C15.8308 16.816 15.4347 17.1753 15.1214 17.6727L15.0116 17.8663C14.7717 18.3359 14.6516 18.9254 14.6516 19.6349C14.6516 20.335 14.7714 20.9706 15.0109 21.5418C15.2688 22.113 15.5821 22.638 15.9505 23.1171C15.1767 24.1673 14.0805 25.5491 12.6618 27.2625L12.1089 27.9252C10.7688 29.5172 9.08286 31.4334 7.05163 33.6742C6.77527 33.9874 6.66472 34.3098 6.72 34.6414C6.75684 34.9731 6.90424 35.2586 7.16218 35.4982C7.42012 35.7193 7.7149 35.839 8.04654 35.8574C8.3966 35.8943 8.70981 35.7561 8.98618 35.4429C11.1787 33.0293 12.9842 31.0027 14.4029 29.3629C15.84 27.7047 16.9823 26.3321 17.8298 25.2451C18.4747 25.9268 19.009 26.5532 19.4327 27.1243C19.8749 27.6771 20.2342 28.193 20.5105 28.672L19.5156 29.2247L19.1273 29.4593C18.2486 30.0055 17.5673 30.5443 17.0836 31.0763L16.9867 31.1909C16.517 31.7695 16.2822 32.4132 16.2822 33.1214C16.2822 33.8953 16.5493 34.5677 17.0836 35.1389C17.5846 35.6571 18.2312 35.9327 19.0236 35.965L19.184 35.968C20.1052 35.968 20.9435 35.6732 21.6989 35.0836C22.4727 34.494 23.0623 33.711 23.4676 32.7345C23.873 31.758 24.0204 30.8184 23.9098 29.9156C24.6696 29.5564 25.4557 29.1662 26.2673 28.7449L27.088 28.3127C28.125 27.7596 29.1448 27.0996 30.1494 26.3358C30.0377 27.0122 29.933 27.6896 29.837 28.368C29.5422 30.4315 29.3211 32.495 29.1737 34.5585L29.1742 34.72C29.1944 35.0868 29.3418 35.383 29.6159 35.6087C29.9475 35.8482 30.316 35.9403 30.7213 35.8851C31.0761 35.8528 31.3533 35.6794 31.5528 35.3649L31.6333 35.2218L32.7388 33.0385C32.9506 32.6148 33.1694 32.1838 33.3951 31.7463L34.093 30.4131C34.572 29.5103 35.0326 28.6351 35.4748 27.7876C35.9354 26.9401 36.3499 26.1939 36.7184 25.5491C37.0869 24.9042 37.3633 24.4252 37.5475 24.112C38.0472 23.306 38.5185 22.7252 38.9619 22.3706L39.1504 22.2327C39.6479 21.9011 40.1361 21.7353 40.6151 21.7353L40.8156 21.7456C41.009 21.7663 41.1817 21.8182 41.3337 21.9011C41.5363 22.0116 41.6561 22.2603 41.693 22.6473C41.7482 23.0157 41.6561 23.6145 41.4166 24.4436L41.2644 24.9551C41.1999 25.1669 41.1218 25.4202 41.0297 25.7149L40.8894 26.1724C40.7478 26.6457 40.6013 27.1658 40.4493 27.7323C40.2466 28.4693 40.0716 29.2063 39.9242 29.9433C39.7768 30.6802 39.7031 31.9331L39.7069 32.1483C39.7479 33.2093 40.0971 34.0681 40.7533 34.7243C41.4269 35.3634 42.2462 35.7027 43.2111 35.7427L43.4064 35.7469C44.3276 35.7469 45.212 35.4153 46.0595 34.752C46.9254 34.0703 47.9019 32.9096 48.9889 31.2698C49.2285 30.9197 49.293 30.5881 49.1824 30.2749C49.0903 29.9433 48.8968 29.6853 48.602 29.5011C48.3257 29.2984 48.0217 29.2155 47.69 29.2523L47.5677 29.2733C47.2876 29.3398 47.0429 29.5264 46.8333 29.8327L46.3205 30.5907C45.8335 31.292 45.4239 31.8225 45.0922 32.1818L44.9306 32.3457C44.5638 32.7085 44.2677 32.9303 44.042 33.0109L43.8575 33.0716C43.6812 33.1234 43.5308 33.1491 43.4064 33.1491L43.4065 32.4217C43.4522 32.4217 43.5736 32.4056 43.7971 32.3258C43.8784 32.2968 44.1251 32.1387 44.5656 31.6802C44.9658 31.2448 45.5175 30.5046 46.2268 29.4316L46.2296 29.4267L46.2332 29.4217C46.5573 28.948 47.0131 28.596 47.6096 28.5297C48.1095 28.4741 48.578 28.5993 48.9867 28.8841C49.4197 29.1547 49.7204 29.5462 49.8674 30.0325C50.0749 30.6203 49.9203 31.19 49.594 31.671L49.5954 31.6717C48.4936 33.3337 47.4662 34.5705 46.5094 35.3237L46.508 35.3244C45.555 36.0702 44.5165 36.4742 43.4065 36.4743C42.1825 36.4743 41.1154 36.07 40.2531 35.252L40.2459 35.2456L40.2388 35.2385C39.3791 34.3786 38.9761 33.2508 38.9761 31.9331C38.9761 31.2847 39.0568 30.5727 39.2111 29.801C39.362 29.0469 39.5409 28.2928 39.7481 27.5396C39.9523 26.7788 40.1479 26.0977 40.3354 25.4977C40.5195 24.9087 40.6465 24.4927 40.7175 24.2441V24.242C40.9565 23.4148 40.035 22.9518 40.9739 22.7548L40.9711 22.7356L40.969 22.7164C40.959 22.6122 40.9405 22.5485 40.9285 22.5133C40.8546 22.4841 40.7542 22.4622 40.6153 22.4622C40.3118 22.4622 39.9612 22.5661 39.5535 22.8379C39.1869 23.0823 38.7193 23.6026 38.1657 24.4956C37.9839 24.8049 37.712 25.2756 37.3496 25.9096C36.9844 26.5489 36.5726 27.2906 36.1138 28.1348C35.6726 28.9805 35.213 29.8537 34.7353 30.7541C34.2589 31.6519 33.8103 32.5217 33.3894 33.3635L33.3866 33.3699C32.9636 34.1975 32.5955 34.9228 32.2836 35.5467C31.9882 36.1375 31.4911 36.533 30.8191 36.6049L30.8198 36.6056C30.815 36.6063 30.8097 36.6057 30.8049 36.6064C30.799 36.607 30.7931 36.6087 30.7871 36.6092L30.7864 36.6085C30.2083 36.6795 29.6639 36.5403 29.1898 36.198L29.1714 36.1845L29.1536 36.1703C28.6468 35.7529 28.42 35.1743 28.4469 34.5282L28.4484 34.5069C28.597 32.4263 28.8195 30.4315 29.1167 28.2654C29.1329 28.1508 29.1497 28.0363 29.1664 27.9217C28.5934 28.2972 28.0149 28.6423 27.4299 28.9544C26.4775 29.4623 25.557 29.9286 24.67 30.3564C24.6926 31.2322 24.5101 32.1202 24.1394 33.0133C23.6893 34.0977 23.0241 34.9884 22.1394 35.6625L22.1387 35.6618C21.2628 36.3431 20.2714 36.6951 19.1842 36.6951C18.1485 36.6951 17.2498 36.3576 16.5606 35.6447L16.5563 35.6397L16.5528 35.6355C15.8939 34.9312 15.5549 34.0818 15.5549 33.1213C15.5549 32.1761 15.8954 31.3268 16.5371 30.5964L16.5414 30.5914L16.5457 30.5872C17.1662 29.9047 18.0447 29.2439 19.1479 28.5971L19.155 28.5929L19.1621 28.5893L19.4832 28.4103C19.3026 28.1471 19.0972 27.8694 18.8646 27.5787L18.8489 27.5574C18.5751 27.1882 18.2474 26.7918 17.8681 26.3649C17.0849 27.3402 16.1137 28.4997 14.9526 29.8393L14.9519 29.8386C13.5281 31.4843 11.7188 33.5159 9.52436 35.9316L9.52365 35.9309C9.13294 36.37 8.61677 36.6353 8.00589 36.5829C7.99402 36.5823 7.98219 36.5816 7.97038 36.5808C7.48972 36.5466 7.05624 36.3649 6.68913 36.0502L6.67777 36.041L6.66711 36.0311C6.29865 35.6889 6.06827 35.2589 6.00376 34.7605L6.00234 34.7612C5.9025 34.1622 6.12386 33.6268 6.5066 33.193L6.51299 33.1859C8.83066 30.6291 10.6927 28.5007 12.1018 26.7988C13.3324 25.3124 14.3115 24.0804 15.0478 23.1049C14.7828 22.7082 14.5495 22.287 14.3482 21.8414L14.344 21.8322L14.3404 21.823C14.059 21.1519 13.9242 20.4189 13.9242 19.6348C13.9242 18.7371 14.097 17.9349 14.5059 17.2853C14.883 16.6864 15.3784 16.2272 15.9945 15.9402C16.5753 15.6606 17.1707 15.5084 17.7744 15.5083C18.3312 15.5083 18.8767 15.6365 19.4043 15.8784L19.4036 15.8798C20.0103 16.1493 20.4932 16.5948 20.8539 17.1809C21.2437 17.8145 21.4036 18.6079 21.4036 19.497C21.4036 20.051 21.3181 20.6157 21.1543 21.1887C21.0097 21.6951 20.7233 22.2918 20.3241 22.9679C20.9292 23.6266 21.5044 24.27 22.0485 24.899L22.2815 25.166C22.6497 25.5971 22.9777 26.0287 23.2658 26.4601C24.0563 26.0708 24.8478 25.6646 25.6387 25.2399C26.5389 24.7242 27.505 24.1377 28.3575 23.4806C29.1241 22.8859 29.8126 22.1975 30.4263 21.416C30.587 21.0853 30.8306 20.8017 31.1863 20.6206C31.2497 20.5872 31.314 20.5577 31.3788 20.5311C31.5896 20.4318 31.8226 20.3745 32.0776 20.3727C32.5726 20.3514 33.032 20.4963 33.432 20.7896C33.5053 20.8433 33.5732 20.9018 33.638 20.9622C33.6584 20.9803 33.6778 20.9994 33.6977 21.0183C33.7043 21.0249 33.711 21.0315 33.7175 21.0382C33.7864 21.1055 33.8534 21.1763 33.915 21.2534C34.1334 21.5265 34.2549 21.8311 34.2935 22.1497C34.3436 22.4306 34.3155 22.7009 34.2303 22.9544C34.2051 23.0683 34.1806 23.1824 34.1557 23.2967C34.3753 22.9131 34.5632 22.5953 34.7197 22.345C35.4044 21.2495 36.2145 20.3273 37.1529 19.5886L37.1586 19.5836C38.1711 18.8032 39.3319 18.4103 40.6153 18.4103C41.828 18.4104 42.8712 18.7314 43.6359 19.4721C44.3566 20.1704 44.7792 21.0715 44.9278 22.1298C45.0731 23.1473 44.9761 24.2234 44.6614 25.3485L44.6621 25.3493C44.5856 25.6361 44.4538 26.0836 44.2715 26.6852L44.2722 26.6859C44.1083 27.2689 43.9347 27.9173 43.7516 28.6312L43.7502 28.6362C43.5693 29.3236 43.4069 29.9832 43.2623 30.6149L43.1813 31.0396C43.1134 31.4316 43.0833 31.726 43.0833 31.9331C43.0833 32.1012 43.1108 32.2528 43.16 32.3933C43.2006 32.405 43.2773 32.4217 43.4065 32.4217L43.4064 33.1491L43.2417 33.1433C42.8748 33.1151 42.6349 32.9879 42.522 32.7622C42.4115 32.5042 42.3562 32.2279 42.3562 31.9331ZM17.9569 18.8329C18.038 18.8434 18.0785 19.0646 18.0785 19.4967L18.0577 19.5794C18.0439 19.6254 18.0233 19.69 17.9956 19.7731C17.9588 19.9389 17.8298 20.2245 17.6087 20.6298C17.4061 20.2613 17.3047 19.9297 17.3047 19.6349C17.3047 19.4875 17.3231 19.3217 17.36 19.1374C17.3922 18.9602 17.5019 18.8601 17.6891 18.8379L17.7745 18.8334H17.9404L17.9569 18.8329Z" fill="#370009"/>
+                            </svg>
+                        </div>
+
+                        <ul class="nidi-nav__menu-frame">
+                            <li><a href="#" class="nidi-nav__link is-active">Work</a></li>
+                            <li><a href="#" class="nidi-nav__link">About</a></li>
+                            <li><a href="#" class="nidi-nav__link">Contact</a></li>
+                        </ul>
+                    </nav>
+                    
+                </div>
+                
+                <pre><code>&lt;!-- Navigation bar HTML --&gt;
+&lt;nav class="nidi-desktop-navbar"&gt;
+    &lt;div class="nidi-nav__initials"&gt;
+        &lt;svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none"&gt;
+            &lt;path d="M0 8.72727C0 3.90733 3.90733 0 8.72727 0H47.2727C52.0927 0 56 3.90733 56 8.72727V47.2727C56 52.0927 52.0927 56 47.2727 56H8.72727C3.90733 56 0 52.0927 0 47.2727V8.72727Z" fill="#DCC4CF"/&gt;
+            &lt;path d="M19.184 35.968...Z" fill="#370009"/&gt;
+        &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;ul class="nidi-nav__menu-frame"&gt;
+        &lt;li&gt;&lt;a href="#" class="nidi-nav__link is-active"&gt;Work&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" class="nidi-nav__link"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" class="nidi-nav__link"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;!-- Navigation bar CSS --&gt;
+.nidi-desktop-navbar {
+    display: flex;
+    width: 100%; /* Bounded relative size footprint */
+    padding: 24px 40px;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFF;
+}
+
+.nidi-nav__initials {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    aspect-ratio: 1 / 1;
+}
+
+.nidi-nav__menu-frame {
+    display: flex;
+    padding: 12px;
+    align-items: center;
+    gap: 32px;
+}
+
+.nidi-nav__link {
+    color: #370009;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+}
+
+.nidi-nav__link.is-active {
+    color: #6A0011;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}</code></pre>
+            </div>
+
+            <h5>Accessibility Parameters</h5>
+            <p class="p-3 bg-light border-start border-4 border-danger small text-muted">
+                The layout menu utilizes native semantic unordered list fragments mapped with distinct interactive focus targets to optimize access for programmatic display readers.
+            </p>
+        </main>
     </div>
+</div>
 
-    <h5 class="mt-4">Implementation Code</h5>
-<pre><code>&lt;nav class="nidi-nav" aria-label="Primary navigation"&gt;
-  &lt;a class="nidi-logo" href="#"&gt;sn&lt;/a&gt;
-  &lt;div class="nidi-nav__links"&gt;
-    &lt;a class="nidi-nav__link" href="#work" aria-current="page"&gt;Work&lt;/a&gt;
-    &lt;a class="nidi-nav__link" href="#about"&gt;About&lt;/a&gt;
-    &lt;a class="nidi-nav__link" href="#contact"&gt;Contact&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/nav&gt;</code></pre>
-
-    <h5 class="mt-4">Accessibility Targets</h5>
-    <p class="p-3 bg-light border-start border-4 border-danger small text-muted">
-        Utilizes <code>aria-current="page"</code> attributes to track programmatic menu item focal visibility, provides alternative navigation support structures through responsive flex layouts, and employs clear landmark element bindings.
-    </p>
-</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

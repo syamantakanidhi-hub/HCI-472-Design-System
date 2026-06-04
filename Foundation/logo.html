@@ -1,34 +1,488 @@
-<main class="col-md-9 col-lg-10 px-md-5 py-5">
-    <h2>Logos</h2>
-    <hr class="my-4">
+<!DOCTYPE html>
+<html lang="en">
 
-    <p class="lead-p">
-        My logo system balances three core semantic visual representations to accommodate scalable interface sizes. To avoid a cold, corporate future-facing layout footprint, my brand rules prohibit sharp, angular corners or heavy geometric forms. All icon manifestations must be positioned over soft, low-contrast color backings to maintain an organic, approachable screen performance footprint.
-    </p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logos - Design System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/homework.css">
+    <style>
+        /* ========================================================
+           EMBEDDED LOCAL ACCORDION LAYOUT AND COLOR OVERRIDES
+           ======================================================== */
 
-    <div class="row g-4 mt-4">
-        <div class="col-md-4">
-            <div class="p-4 bg-white border rounded-4 text-center">
-                <div class="nidi-logo mx-auto mb-3" style="width:72px; height:72px; font-family:'Pacifico', cursive; font-size:36px; background:#dfc3d1; border-radius:12px; display:grid; place-items:center; color:#240006;">sn</div>
-                <h6>Monogram Mark</h6>
-                <p class="small text-muted">Compact capsule configuration display token for restricted footprints like app navbars.</p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="p-4 bg-white border rounded-4 text-center">
-                <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-3" style="height:72px; background:#FAF6F5; color:#880018; font-family:'Pacifico', cursive; font-size:32px;">sam nidhi</div>
-                <h6>Wordmark</h6>
-                <p class="small text-muted">The primary identifier displaying my full name script utilizing custom Momo Signature font styles.</p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="p-4 bg-white border rounded-4 text-center">
-                <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-3" style="height:72px; background:#FCEBE6; color:#880018;">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg>
+        /* Force font family alignment inside sidebar container */
+        .sidebar-wrapper,
+        .sidebar-wrapper button,
+        .sidebar-wrapper a {
+            font-family: 'Quicksand', sans-serif !important;
+        }
+
+        /* Clear global browser blues and text decorations */
+        .sidebar-wrapper a,
+        .sidebar-wrapper a:hover,
+        .sidebar-wrapper a:focus {
+            text-decoration: none !important;
+            color: inherit !important;
+        }
+
+        /* Fixed Viewport Side Navigation Column */
+        .sidebar-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 16.666667%;
+            /* Matches Bootstrap col-md-2 width parameter */
+            height: 100vh;
+            background-color: #FAF6F5 !important;
+            border-right: 1px solid #DCC4CE !important;
+            /* Overhauled border stroke mapping from DEE2E6 to DCC4CE */
+            padding: 0 1rem !important;
+            z-index: 1030;
+            overflow-y: auto;
+        }
+
+        /* Pushes main container out from behind the fixed navbar */
+        main {
+            margin-left: 16.666667%;
+        }
+
+        @media (max-width: 767.98px) {
+            .sidebar-wrapper {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 1rem !important;
+            }
+
+            main {
+                margin-left: 0;
+            }
+        }
+
+        /* Transparent Logo Container Wrapper (White Box Removed) */
+        .brand-wrapper {
+            background: transparent !important;
+            padding: 0;
+            margin-bottom: 1.5rem !important;
+            text-align: center;
+            display: block;
+            border-bottom: none !important;
+        }
+
+        /* Exact Frame Properties and Spacing Metrics (16px vertical margins) */
+        .nav-logo-frame {
+            width: 72px;
+            height: 72px;
+            margin: 16px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-logo-frame img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* --- Classic Rounded Accordion Outer Wrapper Frame --- */
+        .nav-accordion {
+            border: 1px solid #DCC4CE !important;
+            /* Swapped outer frame border to DCC4CE */
+            border-radius: 0.375rem !important;
+            overflow: hidden;
+            background-color: #ffffff !important;
+        }
+
+        .nav-accordion .accordion-item {
+            border: none !important;
+            background-color: #ffffff !important;
+        }
+
+        .nav-accordion .accordion-item:not(:last-child) {
+            border-bottom: 1px solid #DCC4CE !important;
+            /* Divider borders mapped to DCC4CE */
+        }
+
+        /* --- Primary Header Collapse Select Buttons --- */
+        .nav-accordion .accordion-button {
+            background-color: #ffffff !important;
+            /* Default background stays clean white */
+            color: #1F0005 !important;
+            /* Header typography color mapped from 052C65 to 1F0005 */
+            font-size: 1rem;
+            font-weight: 600 !important;
+            padding: 1rem 1.25rem !important;
+            box-shadow: none !important;
+        }
+
+        /* Active Expanded Folder View State: Background swapped from D0E2FF to EFE4E9 */
+        .nav-accordion .accordion-button:not(.collapsed) {
+            background-color: #EFE4E9 !important;
+            /* Swapped active background color to EFE4E9 */
+            color: #1F0005 !important;
+            /* Retains text color 1F0005 */
+            box-shadow: none !important;
+        }
+
+        .nav-accordion .accordion-button:focus {
+            box-shadow: none !important;
+        }
+
+        /* Forces internal arrow canvas indicator asset to look clean dark 1F0005 */
+        .nav-accordion .accordion-button::after {
+            filter: brightness(0) saturate(100%) invert(6%) sepia(87%) saturate(3061%) hue-rotate(334deg) brightness(50%) contrast(109%) !important;
+        }
+
+        /* --- Sub-navigation Nested Accordion Body Area --- */
+        .nav-accordion .accordion-body {
+            padding: 1rem 1.25rem !important;
+            background-color: #ffffff !important;
+            /* Keeps core white internal area view */
+        }
+
+        .sidebar-subnav {
+            list-style: disc !important;
+            /* Standard layout bullet points */
+            padding-left: 1.25rem !important;
+            margin: 0 !important;
+        }
+
+        .sidebar-subnav li {
+            color: #6A0011 !important;
+            /* Bullet dots inherit your active link tone */
+            margin-bottom: 0.5rem !important;
+        }
+
+        .sidebar-subnav li:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        /* Document subfolder text link tags: Swapped color from 0D6EFD to 6A0011 with an underline */
+        .sidebar-subnav a {
+            color: #6A0011 !important;
+            /* Text links swapped from 0D6EFD to 6A0011 */
+            font-weight: 500 !important;
+            text-decoration: underline !important;
+            /* Preserves requested underline formatting */
+            display: inline-block;
+        }
+
+        .sidebar-subnav a:hover,
+        .sidebar-subnav a.active-link {
+            color: #1F0005 !important;
+            /* Hover or pressed active view highlight */
+            font-weight: 700 !important;
+        }
+
+        /* ========================================================
+           MAIN GROUND CANVAS PRESENTATION STYLES
+           ======================================================== */
+
+        /* Transparent Square Card Layout (No Fill, No Shadow, Thin Stroke) */
+        .color-spec-card {
+            background: transparent !important;
+            border: 1px solid rgba(36, 0, 6, 0.15) !important;
+            border-radius: 0px !important;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /* Perfect Geometric Color Square Constraints */
+        .color-swatch-square {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 0px !important;
+            margin-bottom: 1rem;
+            box-sizing: border-box;
+        }
+
+        /* Unbolded Color Description Labels */
+        .color-label-text {
+            font-weight: 400 !important;
+            display: block;
+            font-size: 14px;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Plain Black Token Hex Value Code Typography */
+        .color-hex-text {
+            font-family: monospace !important;
+            color: #000000 !important;
+            font-size: 13px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body style="background: #FAF6F5; color: var(--ink);">
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Persistent Sidebar Grid Navigation Panel -->
+            <div class="col-md-3 col-lg-2 sidebar-wrapper">
+                <a href="../index.html" class="brand-wrapper">
+                    <div class="nav-logo-frame">
+                        <img src="../Components/img/wordmark-4.svg" alt="sam nidhi monogram initials mark">
+                    </div>
+                </a>
+
+                <div class="accordion nav-accordion" id="accordionPanelsStayOpenExample">
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-fFoundations" aria-expanded="true"
+                                aria-controls="panelsStayOpen-fFoundations">
+                                Foundations
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-fFoundations" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <ul class="sidebar-subnav">
+                                    <li><a href="color.html">Color Palette</a></li>
+                                    <li><a href="typography.html">Typography</a></li>
+                                    <li><a href="logo.html" class="active-link">Logos</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-fComponents" aria-expanded="false"
+                                aria-controls="panelsStayOpen-fComponents">
+                                Components
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-fComponents" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <ul class="sidebar-subnav">
+                                    <li><a href="../Components/buttons.html">Buttons</a></li>
+                                    <li><a href="../Components/cards.html">Cards</a></li>
+                                    <li><a href="../Components/navigation.html">Navigation Bar</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-fPages" aria-expanded="false"
+                                aria-controls="panelsStayOpen-fPages">
+                                Page Patterns
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-fPages" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <ul class="sidebar-subnav">
+                                    <li><a href="../Pages/desktop.html">Desktop</a></li>
+                                    <li><a href="../Pages/tablet.html">Tablet</a></li>
+                                    <li><a href="../Pages/mobile.html">Mobile</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <h6>Icon Mark</h6>
-                <p class="small text-muted">A stylized diamond line configuration reflecting the historical derivation of my name, <em>Syamantaka</em>.</p>
             </div>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 col-lg-10 px-md-5 py-5">
+                <h2>Logos</h2>
+                <hr class="my-4">
+
+                <!-- Global Identity Text Brought to the Top -->
+                <p class="lead-p mb-5">
+                    For my logo, I wanted something fun and something that looked like it has movement. I didn't want
+                    anything sharp, angular or heavy. The handwritten script felt the right amount of imperfect! The
+                    diamond comes from my name: "Syamantaka" which is a jewel that belongs to the Hindu God Krishna. I
+                    chose a warm colour palette because it matches my personality. I wanted the colours to look soft. I
+                    didn't want it to look futuristic and corporate.
+                </p>
+
+                <!-- Mind Map Section Panel -->
+                <h3 class="mt-5 mb-3">Mind Map</h3>
+                <div class="row">
+                    <div class="col-md-10 col-lg-8">
+                        <!-- border, rounded classes, and inline stroke constraints removed safely -->
+                        <img src="../Components/img/mindmap.jpeg" class="img-fluid"
+                            style="max-height: 500px; object-fit: contain; display: block;"
+                            alt="Logo development process mind map layout">
+                    </div>
+                </div>
+
+                <!-- Monogram Section -->
+                <h4 class="mb-3">Monogram Mark</h4>
+                <div class="component-spec-container">
+                    <!-- Display Grid showing all 7 initials variants with no dotted lines -->
+                    <div class="row g-2 mb-3">
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/initials-1.svg"
+                                        alt="Initials 1"></div><span class="small text-muted">beige on terracotta</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/initials-2.svg"
+                                        alt="Initials 2"></div><span class="small text-muted">black on white</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/initials-3.svg"
+                                        alt="Initials 3"></div><span class="small text-muted">blood on lavendar</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/initials-4.svg"
+                                        alt="Initials 4"></div><span class="small text-muted">just black text</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/initials-5.svg"
+                                        alt="Initials 5"></div><span class="small text-muted">lavendar on blood</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/initials-6.svg"
+                                        alt="Initials 6"></div><span class="small text-muted">terracotta on beige</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/initials-7.svg"
+                                        alt="Initials 7"></div><span class="small text-muted">white on black</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Wordmark Section -->
+                <h4 class="mb-3">Wordmark</h4>
+                <div class="component-spec-container">
+                    <!-- Display Grid showing all 7 wordmark variants with no dotted lines -->
+                    <div class="row g-2 mb-3">
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/wordmark-1.svg"
+                                        alt="Wordmark 1"></div><span class="small text-muted">beige on terracotta</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/wordmark-2.svg"
+                                        alt="Wordmark 2"></div><span class="small text-muted">black on white</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/wordmark-3.svg"
+                                        alt="Wordmark 3"></div><span class="small text-muted">blood on lavendar</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/wordmark-4.svg"
+                                        alt="Wordmark 4"></div><span class="small text-muted">just black text</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/wordmark-5.svg"
+                                        alt="Wordmark 5"></div><span class="small text-muted">lavendar on blood</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/wordmark-6.svg"
+                                        alt="Wordmark 6"></div><span class="small text-muted">terracotta on beige</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/wordmark-7.svg"
+                                        alt="Wordmark 7"></div><span class="small text-muted">white on black</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Icon Mark Section -->
+                <h4 class="mb-3">Icon Mark</h4>
+                <div class="component-spec-container">
+                    <!-- Display Grid showing all 7 icon variants with no dotted lines -->
+                    <div class="row g-2 mb-3">
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/icon-1.svg" alt="Icon 1">
+                                </div><span class="small text-muted">beige on terracotta</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/icon-2.svg" alt="Icon 2">
+                                </div><span class="small text-muted">black on white</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/icon-3.svg" alt="Icon 3">
+                                </div><span class="small text-muted">blood on lavendar</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/icon-4.svg" alt="Icon 4">
+                                </div><span class="small text-muted">just black text</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/icon-5.svg" alt="Icon 5">
+                                </div><span class="small text-muted">lavendar on blood</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/icon-6.svg" alt="Icon 6">
+                                </div><span class="small text-muted">terracotta on beige</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2">
+                            <div class="logo-variant-card">
+                                <div class="logo-preview-frame"><img src="../Components/img/icon-7.svg" alt="Icon 7">
+                                </div><span class="small text-muted">white on black</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Accessibility Parameters -->
+                <h5>Accessibility Parameters</h5>
+                <p class="p-3 bg-light border-start border-4 border-danger small text-muted">
+                    All branding components embed explicit informative alternative text strings to guarantee logical
+                    identification across programmatic assistive screen readers.
+                </p>
+            </main>
         </div>
     </div>
-</main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

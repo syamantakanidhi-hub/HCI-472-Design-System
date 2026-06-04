@@ -1,106 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
 
-/* Personal Color Tokens */
+/* Design System Color Tokens Mapping */
 :root {
-  --bg: #050505;
+  --bg: #FAF6F5;            /* Soft Background Canvas */
   --surface: #ffffff;
-  --ink: #240006;
-  --muted: #1f1718;
-  --wine: #880018;
-  --wine-dark: #3b0008;
-  --pink: #dfc3d1;
-  --purple: #7b38dc;
+  --ink: #1F1718;           /* Neutrals 100 Base Text */
+  --muted: #838383;         /* Neutrals 70 */
+  --wine: #6A0011;          /* Blood 30 */
+  --wine-dark: #370009;     /* Blood 50 */
+  --lavender-light: #F3EBE9;/* Lavender 30 */
 }
 
 * { box-sizing: border-box; }
 
-body {
-  margin: 0;
-  font-family: "Quicksand", system-ui, sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-}
-
-a { color: inherit; text-decoration: none; }
-
-/* Sticky Left Layout Navigation Sidebar */
-.sidebar-wrapper {
-    background-color: #F3EBE9;
-    border-right: 1px solid rgba(0, 0, 0, 0.05);
-    min-height: 100vh;
-    padding: 2rem 1.5rem;
-}
-
-.brand-wrapper {
-    padding-bottom: 2rem;
-    text-align: center;
-}
-
-/* Accordion Custom Overrides */
-.nav-accordion .accordion-item {
-    background: transparent;
-    border: none;
-    margin-bottom: 0.75rem;
-}
-
-.nav-accordion .accordion-button {
-    background: transparent;
-    color: var(--ink);
-    font-weight: 700;
-    font-size: 1.05rem;
-    padding: 0.5rem 0;
-    box-shadow: none;
-}
-
-.nav-accordion .accordion-button:not(.collapsed) {
-    color: var(--wine);
-    background: transparent;
-}
-
-.nav-accordion .accordion-button::after {
-    filter: sepia(100%) saturate(200%) hue-rotate(320deg);
-}
-
-.sidebar-subnav {
-    list-style: none;
-    padding-left: 1rem;
-    margin: 0.25rem 0 0 0;
-}
-
-.sidebar-subnav a {
-    color: #5A4245;
-    text-decoration: none;
-    display: block;
-    padding: 0.4rem 0;
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-
-.sidebar-subnav a:hover,
-.sidebar-subnav a.active-link {
-    color: var(--wine);
-    font-weight: 700;
-}
-
-/* Color Page System Swatches */
-.color-swatch {
-    height: 120px;
-    border-radius: 16px;
-    margin-bottom: 0.75rem;
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
-}
-
-/* Live Component Code Display Blocks */
-pre {
-    background-color: #231215;
-    color: #F8EFEF;
-    padding: 1.5rem;
-    border-radius: 12px;
-    overflow-x: auto;
-    font-family: monospace;
-}
-
-/* Nidi Custom System UI Components */
+/* Custom UI Layout Component Implementations (Buttons Specs) */
 .nidi-button {
   min-height: 43px;
   border-radius: 999px;
@@ -108,7 +21,6 @@ pre {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: "Quicksand", system-ui, sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 1;
@@ -120,7 +32,7 @@ pre {
 .nidi-button--primary {
   width: 104px;
   background: var(--wine);
-  color: #fff;
+  color: #fff !important;
 }
 
 .nidi-button--primary:hover {
@@ -128,36 +40,26 @@ pre {
   border-color: var(--wine-dark);
 }
 
-.nidi-button--primary:active {
-  background: var(--wine-dark);
-  border-color: var(--wine-dark);
-}
-
 .nidi-button--primary:disabled {
   background: #b8b8b8;
   border-color: #b8b8b8;
-  color: #909090;
+  color: #909090 !important;
   cursor: not-allowed;
 }
 
 .nidi-button--secondary {
   width: 104px;
   background: transparent;
-  color: var(--wine);
+  color: var(--wine) !important;
 }
 
 .nidi-button--secondary:hover {
   background: rgba(136, 0, 24, 0.08);
 }
 
-.nidi-button--secondary:active {
-  border-color: var(--wine-dark);
-  color: var(--wine-dark);
-}
-
 .nidi-button--secondary.is-light {
   border-color: #d9d9d9;
-  color: #d9d9d9;
+  color: #d9d9d9 !important;
 }
 
 .nidi-button--cta {
@@ -167,134 +69,42 @@ pre {
   font-size: 14px;
 }
 
-/* Navigation Framework Elements */
-.nidi-nav {
-  min-height: 104px;
-  background: var(--surface);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 60px;
-  border-radius: 8px;
+/* Color Page System Swatches */
+.color-swatch {
+    height: 120px;
+    border-radius: 16px;
+    margin-bottom: 0.75rem;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
 }
 
-.nidi-logo {
-  width: 56px;
-  height: 56px;
-  border-radius: 7px;
-  background: var(--pink);
-  color: var(--ink);
-  display: grid;
-  place-items: center;
-  font-family: "Pacifico", cursive;
-  font-size: 28px;
-  line-height: 1;
+/* Interactive Code Boxes formatting */
+pre {
+    background-color: #231215;
+    color: #F8EFEF;
+    padding: 1.5rem;
+    border-radius: 12px;
+    overflow-x: auto;
+    font-family: monospace !important;
+}
+pre code {
+    font-family: monospace !important;
+    color: #F8EFEF !important;
 }
 
-.nidi-nav__links {
-  display: flex;
-  gap: 42px;
-  font-size: 20px;
-  font-weight: 500;
+/* ========================================================
+   DESIGN SYSTEM TYPOGRAPHY INJECTIONS
+   ======================================================== */
+
+/* Force Quicksand strictly onto your main presentation canvas containers */
+main, 
+main h1, main h2, main h3, main h4, main h5, main h6, 
+main p, main span,
+.nidi-work-card, .nidi-work-card *, 
+.nidi-contact-card, .nidi-contact-card * {
+  font-family: 'Quicksand', sans-serif !important;
 }
 
-.nidi-nav__link[aria-current="page"] {
-  color: var(--wine);
-  font-weight: 700;
-}
-
-.nidi-menu {
-  display: none;
-  border: 0;
-  background: transparent;
-  color: var(--ink);
-}
-
-@media (max-width: 760px) {
-  .nidi-nav { padding: 0 40px; }
-  .nidi-nav__links { display: none; }
-  .nidi-menu { display: inline-grid; place-items: center; }
-}
-
-/* Hero Section Elements */
-.nidi-hero {
-  min-height: 520px;
-  display: grid;
-  grid-template-columns: 300px minmax(280px, 500px);
-  align-items: center;
-  justify-content: center;
-  gap: 64px;
-  color: var(--muted);
-  background: var(--bg);
-  padding: 2rem;
-  border-radius: 12px;
-}
-
-.nidi-portrait {
-  width: 294px;
-  height: 294px;
-  position: relative;
-  overflow: hidden;
-  border: 5px solid var(--wine);
-  border-radius: 86px 86px 12px 86px;
-  background:
-    radial-gradient(circle at 52% 45%, #d5a0ad 0 104px, transparent 105px),
-    linear-gradient(135deg, #ffc4b8 0%, #ffd0c4 62%, #ff9d80 100%);
-}
-
-.nidi-portrait::before {
-  content: "";
-  position: absolute;
-  inset: 60px 48px -24px;
-  border-radius: 48% 52% 38% 36%;
-  background: linear-gradient(130deg, #130c0c 0 26%, #3d221e 60%, #120b0b 100%);
-}
-
-.nidi-portrait::after {
-  content: "";
-  position: absolute;
-  width: 72px;
-  height: 94px;
-  left: 50%;
-  top: 92px;
-  transform: translateX(-50%);
-  border-radius: 46% 46% 40% 40%;
-  background: #c98d73;
-}
-
-.nidi-hero__eyebrow {
-  margin: 0 0 10px;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.nidi-hero__title {
-  margin: 0 0 14px;
-  color: var(--wine);
-  font-family: "Pacifico", cursive;
-  font-size: 58px;
-  line-height: 1;
-}
-
-.nidi-hero__copy {
-  max-width: 500px;
-  margin: 0 0 22px;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.55;
-}
-
-@media (max-width: 760px) {
-  .nidi-hero {
-    min-height: 640px;
-    grid-template-columns: 1fr;
-    gap: 26px;
-    justify-items: center;
-    text-align: center;
-  }
-
-  .nidi-hero__copy {
-    max-width: 330px;
-    font-size: 18px;
-  }
+/* Isolate your technical markdown layouts to preserve clean code rendering monospace spacing */
+pre, pre *, code, code * {
+  font-family: monospace !important;
 }
