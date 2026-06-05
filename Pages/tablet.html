@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablet Patterns - System</title>
-    
+    <title>Tablet - Design System</title>
+
     <!-- Tab Favicon Icon Links -->
     <link rel="icon" type="image/svg+xml" href="../Components/img/icon-1.svg">
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/homework.css?v=2.0">
-    
+
     <style>
         /* Clear global browser blues and text decorations inside nav */
-        .sidebar-wrapper a, .sidebar-wrapper a:hover, .sidebar-wrapper a:focus {
+        .sidebar-wrapper a,
+        .sidebar-wrapper a:hover,
+        .sidebar-wrapper a:focus {
             text-decoration: none !important;
             color: inherit !important;
         }
@@ -45,6 +47,7 @@
                 height: auto;
                 padding: 1rem !important;
             }
+
             main {
                 margin-left: 0;
             }
@@ -196,7 +199,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            
+
             <!-- Persistent Premium Fixed Sidebar Layout Wrapper Column -->
             <div class="col-md-3 col-lg-2 sidebar-wrapper">
                 <a href="../index.html" class="brand-wrapper">
@@ -274,48 +277,59 @@
 
                 <!-- Horizontal Navigation Tabs Controller Row -->
                 <div class="nav custom-pattern-tabs mb-4 mx-auto" id="tabletPatternTabs" role="tablist">
-                    <button class="nav-link active" id="home-design-tab" data-bs-toggle="tab" data-bs-target="#home-design" type="button" role="tab">Homepage Design</button>
-                    <button class="nav-link" id="home-grid-tab" data-bs-toggle="tab" data-bs-target="#home-grid" type="button" role="tab">Homepage Grid</button>
-                    <button class="nav-link" id="case-design-tab" data-bs-toggle="tab" data-bs-target="#case-design" type="button" role="tab">Case Study Design</button>
-                    <button class="nav-link" id="case-grid-tab" data-bs-toggle="tab" data-bs-target="#case-grid" type="button" role="tab">Case Study Grid</button>
+                    <button class="nav-link active" id="home-design-tab" data-bs-toggle="tab"
+                        data-bs-target="#home-design" type="button" role="tab">Homepage Design</button>
+                    <button class="nav-link" id="home-grid-tab" data-bs-toggle="tab" data-bs-target="#home-grid"
+                        type="button" role="tab">Homepage Grid</button>
+                    <button class="nav-link" id="case-design-tab" data-bs-toggle="tab" data-bs-target="#case-design"
+                        type="button" role="tab">Case Study Design</button>
+                    <button class="nav-link" id="case-grid-tab" data-bs-toggle="tab" data-bs-target="#case-grid"
+                        type="button" role="tab">Case Study Grid</button>
                 </div>
 
                 <!-- Tab Panels View Contents Content Areas -->
                 <div class="tab-content text-start" id="tabletPatternTabsContent">
-                    
+
                     <!-- Subsection Tab 1: Homepage Design -->
-                    <div class="tab-pane fade show active" id="home-design" role="tabpanel"> 
-                        <h5 class="mb-3 text-muted">Homepage Design View</h5>
-                        <div class="pattern-spec-card">
-                            <img src="../img/tablet-home-design.png" class="img-fluid w-100 rounded border" alt="Tablet homepage design view mockup rendering placeholder" onerror="this.style.display='none';">
-                            <div class="p-5 bg-light text-center border text-muted rounded small">Place <strong>tablet-home-design.png</strong> inside your img/ directory</div>
+                    <div class="tab-pane fade show active" id="home-design" role="tabpanel">
+                        <h4 class="mb-3">Homepage Design View</h4>
+                        <div>
+                            <img src="../Components/img/TabletHome.svg" 
+                            class="img-fluid rounded border" 
+                            style="max-width: 744px; width: 100%; display: block; margin: 0 auto;" 
+                            alt="Tablet View Canvas">
                         </div>
                     </div>
 
                     <!-- Subsection Tab 2: Homepage Grid -->
                     <div class="tab-pane fade" id="home-grid" role="tabpanel">
-                            <h5 class="mb-3 text-muted">Homepage Layout Alignment Grid</h5>
-                        <div class="pattern-spec-card">
-                            <img src="../img/tablet-home-grid.png" class="img-fluid w-100 rounded border" alt="Tablet homepage blueprint alignment grid overlay placeholder" onerror="this.style.display='none';">
-                            <div class="p-5 bg-light text-center border text-muted rounded small">Place <strong>tablet-home-grid.png</strong> inside your img/ directory</div>
+                        <h4 class="mb-3">Homepage Layout Alignment Grid</h4>
+                        <div>
+                            <img src="../Components/img/TabletHomeGrid.svg" class="img-fluid w-100 rounded border"
+                                style="max-width: 744px; width: 100%; display: block; margin: 0 auto;"
+                                alt="Tablet homepage blueprint alignment grid overlay placeholder"
+                                onerror="this.style.display='none';">
                         </div>
                     </div>
 
                     <!-- Subsection Tab 3: Case Study Design -->
                     <div class="tab-pane fade" id="case-design" role="tabpanel">
-                            <h5 class="mb-3 text-muted">Case Study Design View</h5>
-                        <div class="pattern-spec-card">
-                            <img src="../img/tablet-case-design.png" class="img-fluid w-100 rounded border" alt="Tablet case study documentation wireframe design view" onerror="this.style.display='none';">
-                            <div class="p-5 bg-light text-center border text-muted rounded small">Place <strong>tablet-case-design.png</strong> inside your img/ directory</div>
+                        <h4 class="mb-3">Case Study Design View</h4>
+                        <div>
+                            <img src="../Components/img/TabletCaseStudy.svg" class="img-fluid rounded border"
+                                style="max-width: 744px; width: 100%; display: block; margin: 0 auto;"
+                                alt="Tablet View Canvas">
                         </div>
                     </div>
 
                     <!-- Subsection Tab 4: Case Study Grid -->
                     <div class="tab-pane fade" id="case-grid" role="tabpanel">
-                            <h5 class="mb-3 text-muted">Case Study Layout Alignment Grid</h5>
-                        <div class="pattern-spec-card">
-                            <img src="../img/tablet-case-grid.png" class="img-fluid w-100 rounded border" alt="Tablet case study structural blueprint layout grid overlay" onerror="this.style.display='none';">
-                            <div class="p-5 bg-light text-center border text-muted rounded small">Place <strong>tablet-case-grid.png</strong> inside your img/ directory</div>
+                        <h4 class="mb-3">Case Study Layout Alignment Grid</h4>
+                        <div>
+                            <img src="../Components/img/TabletCaseStudyGrid.svg" class="img-fluid w-100 rounded border"
+                                style="max-width: 744px; width: 100%; display: block; margin: 0 auto;"
+                                alt="Tablet case study structural blueprint layout grid overlay"
+                                onerror="this.style.display='none';">
                         </div>
                     </div>
 
