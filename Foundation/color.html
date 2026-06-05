@@ -17,12 +17,16 @@
            ======================================================== */
 
         /* Force font family alignment inside sidebar container */
-        .sidebar-wrapper, .sidebar-wrapper button, .sidebar-wrapper a {
+        .sidebar-wrapper,
+        .sidebar-wrapper button,
+        .sidebar-wrapper a {
             font-family: 'Quicksand', sans-serif !important;
         }
 
         /* Clear global browser blues and text decorations */
-        .sidebar-wrapper a, .sidebar-wrapper a:hover, .sidebar-wrapper a:focus {
+        .sidebar-wrapper a,
+        .sidebar-wrapper a:hover,
+        .sidebar-wrapper a:focus {
             text-decoration: none !important;
             color: inherit !important;
         }
@@ -32,10 +36,12 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 16.666667%; /* Matches Bootstrap col-md-2 width parameter */
+            width: 16.666667%;
+            /* Matches Bootstrap col-md-2 width parameter */
             height: 100vh;
             background-color: #FAF6F5 !important;
-            border-right: 1px solid #DCC4CE !important; /* Overhauled border stroke mapping from DEE2E6 to DCC4CE */
+            border-right: 1px solid #DCC4CE !important;
+            /* Overhauled border stroke mapping from DEE2E6 to DCC4CE */
             padding: 0 1rem !important;
             z-index: 1030;
             overflow-y: auto;
@@ -47,15 +53,23 @@
         }
 
         @media (max-width: 767.98px) {
-            .sidebar-wrapper { position: relative; width: 100%; height: auto; padding: 1rem !important; }
-            main { margin-left: 0; }
+            .sidebar-wrapper {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 1rem !important;
+            }
+
+            main {
+                margin-left: 0;
+            }
         }
 
         /* Transparent Logo Container Wrapper (White Box Removed) */
         .brand-wrapper {
-            background: transparent !important;    
+            background: transparent !important;
             padding: 0;
-            margin-bottom: 1.5rem !important; 
+            margin-bottom: 1.5rem !important;
             text-align: center;
             display: block;
             border-bottom: none !important;
@@ -70,16 +84,17 @@
             align-items: center;
             justify-content: center;
         }
-        
-        .nav-logo-frame img { 
-            max-width: 100%; 
-            max-height: 100%; 
-            object-fit: contain; 
+
+        .nav-logo-frame img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
 
         /* --- Classic Rounded Accordion Outer Wrapper Frame --- */
         .nav-accordion {
-            border: 1px solid #DCC4CE !important; /* Swapped outer frame border to DCC4CE */
+            border: 1px solid #DCC4CE !important;
+            /* Swapped outer frame border to DCC4CE */
             border-radius: 0.375rem !important;
             overflow: hidden;
             background-color: #ffffff !important;
@@ -91,13 +106,16 @@
         }
 
         .nav-accordion .accordion-item:not(:last-child) {
-            border-bottom: 1px solid #DCC4CE !important; /* Divider borders mapped to DCC4CE */
+            border-bottom: 1px solid #DCC4CE !important;
+            /* Divider borders mapped to DCC4CE */
         }
 
         /* --- Primary Header Collapse Select Buttons --- */
         .nav-accordion .accordion-button {
-            background-color: #ffffff !important; /* Default background stays clean white */
-            color: #1F0005 !important;            /* Header typography color mapped from 052C65 to 1F0005 */
+            background-color: #ffffff !important;
+            /* Default background stays clean white */
+            color: #1F0005 !important;
+            /* Header typography color mapped from 052C65 to 1F0005 */
             font-size: 1rem;
             font-weight: 600 !important;
             padding: 1rem 1.25rem !important;
@@ -106,8 +124,10 @@
 
         /* Active Expanded Folder View State: Background swapped from D0E2FF to EFE4E9 */
         .nav-accordion .accordion-button:not(.collapsed) {
-            background-color: #EFE4E9 !important; /* Swapped active background color to EFE4E9 */
-            color: #1F0005 !important;            /* Retains text color 1F0005 */
+            background-color: #EFE4E9 !important;
+            /* Swapped active background color to EFE4E9 */
+            color: #1F0005 !important;
+            /* Retains text color 1F0005 */
             box-shadow: none !important;
         }
 
@@ -123,32 +143,41 @@
         /* --- Sub-navigation Nested Accordion Body Area --- */
         .nav-accordion .accordion-body {
             padding: 1rem 1.25rem !important;
-            background-color: #ffffff !important; /* Keeps core white internal area view */
+            background-color: #ffffff !important;
+            /* Keeps core white internal area view */
         }
 
         .sidebar-subnav {
-            list-style: disc !important; /* Standard layout bullet points */
+            list-style: disc !important;
+            /* Standard layout bullet points */
             padding-left: 1.25rem !important;
             margin: 0 !important;
         }
 
         .sidebar-subnav li {
-            color: #6A0011 !important; /* Bullet dots inherit your active link tone */
+            color: #6A0011 !important;
+            /* Bullet dots inherit your active link tone */
             margin-bottom: 0.5rem !important;
         }
-        .sidebar-subnav li:last-child { margin-bottom: 0 !important; }
+
+        .sidebar-subnav li:last-child {
+            margin-bottom: 0 !important;
+        }
 
         /* Document subfolder text link tags: Swapped color from 0D6EFD to 6A0011 with an underline */
         .sidebar-subnav a {
-            color: #6A0011 !important; /* Text links swapped from 0D6EFD to 6A0011 */
+            color: #6A0011 !important;
+            /* Text links swapped from 0D6EFD to 6A0011 */
             font-weight: 500 !important;
-            text-decoration: underline !important; /* Preserves requested underline formatting */
+            text-decoration: underline !important;
+            /* Preserves requested underline formatting */
             display: inline-block;
         }
 
         .sidebar-subnav a:hover,
         .sidebar-subnav a.active-link {
-            color: #1F0005 !important; /* Hover or pressed active view highlight */
+            color: #1F0005 !important;
+            /* Hover or pressed active view highlight */
             font-weight: 700 !important;
         }
 
@@ -271,31 +300,35 @@
                 <h2>Color Palette</h2>
                 <hr class="my-4">
 
-                <h4 class="mb-3 mt-4" style="color: var(--wine);">Blood</h4>
+                
+
+
+
+                <h4 class="mb-3 mt-4" style="color: var(--wine);">Primary Color: Blood</h4>
                 <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-xl-6 g-3 mb-5">
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square" style="background-color: #840015;"></div>
                             <span class="color-label-text">Blood 20</span>
                             <span class="color-hex-text">#840015</span>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square" style="background-color: #6A0011;"></div>
                             <span class="color-label-text">Blood 30</span>
                             <span class="color-hex-text">#6A0011</span>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square" style="background-color: #370009;"></div>
                             <span class="color-label-text">Blood 50</span>
                             <span class="color-hex-text">#370009</span>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square" style="background-color: #1F0005;"></div>
                             <span class="color-label-text">Blood 60</span>
                             <span class="color-hex-text">#1F0005</span>
@@ -303,49 +336,12 @@
                     </div>
                 </div>
 
-                <h4 class="mb-3">Terracotta</h4>
-                <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-xl-6 g-3 mb-5">
-                    <div class="col">
-                        <div class="color-spec-card">
-                            <div class="color-swatch-square" style="background-color: #B73813;"></div>
-                            <span class="color-label-text">Terracotta 20</span>
-                            <span class="color-hex-text">#B73813</span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="color-spec-card">
-                            <div class="color-swatch-square" style="background-color: #9F3110;"></div>
-                            <span class="color-label-text">Terracotta 30</span>
-                            <span class="color-hex-text">#9F3110</span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="color-spec-card">
-                            <div class="color-swatch-square" style="background-color: #71240B;"></div>
-                            <span class="color-label-text">Terracotta 50</span>
-                            <span class="color-hex-text">#71240B</span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="color-spec-card">
-                            <div class="color-swatch-square" style="background-color: #431505;"></div>
-                            <span class="color-label-text">Terracotta 70</span>
-                            <span class="color-hex-text">#431505</span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="color-spec-card">
-                            <div class="color-swatch-square" style="background-color: #2B0D04;"></div>
-                            <span class="color-label-text">Terracotta 80</span>
-                            <span class="color-hex-text">#2B0D04</span>
-                        </div>
-                    </div>
-                </div>
 
-                <h4 class="mb-3">Lavender</h4>
+
+                <h4 class="mb-3">Secondary Color: Lavender</h4>
                 <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-xl-6 g-3 mb-5">
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square"
                                 style="background-color: #FAF6F5; border: 1px solid rgba(0,0,0,0.05);"></div>
                             <span class="color-label-text">Lavender 20</span>
@@ -353,28 +349,28 @@
                         </div>
                     </div>
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square" style="background-color: #F3EBE9;"></div>
                             <span class="color-label-text">Lavender 30</span>
                             <span class="color-hex-text">#F3EBE9</span>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square" style="background-color: #D4C3CB;"></div>
                             <span class="color-label-text">Lavender 50</span>
                             <span class="color-hex-text">#D4C3CB</span>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square" style="background-color: #BAA5B0;"></div>
                             <span class="color-label-text">Lavender 70</span>
                             <span class="color-hex-text">#BAA5B0</span>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square" style="background-color: #A992A0;"></div>
                             <span class="color-label-text">Lavender 80</span>
                             <span class="color-hex-text">#A992A0</span>
@@ -382,10 +378,51 @@
                     </div>
                 </div>
 
-                <h4 class="mb-3">Beige</h4>
+
+
+                <h4 class="mb-3">Tertiary Color 1: Terracotta</h4>
                 <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-xl-6 g-3 mb-5">
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
+                            <div class="color-swatch-square" style="background-color: #B73813;"></div>
+                            <span class="color-label-text">Terracotta 20</span>
+                            <span class="color-hex-text">#B73813</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <div class="color-swatch-square" style="background-color: #9F3110;"></div>
+                            <span class="color-label-text">Terracotta 30</span>
+                            <span class="color-hex-text">#9F3110</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <div class="color-swatch-square" style="background-color: #71240B;"></div>
+                            <span class="color-label-text">Terracotta 50</span>
+                            <span class="color-hex-text">#71240B</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <div class="color-swatch-square" style="background-color: #431505;"></div>
+                            <span class="color-label-text">Terracotta 70</span>
+                            <span class="color-hex-text">#431505</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <div class="color-swatch-square" style="background-color: #2B0D04;"></div>
+                            <span class="color-label-text">Terracotta 80</span>
+                            <span class="color-hex-text">#2B0D04</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mb-3">Tertiary Color 2:Beige</h4>
+                <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-xl-6 g-3 mb-5">
+                    <div class="col">
+                        <div>
                             <div class="color-swatch-square"
                                 style="background-color: #FFFFFF; border: 1px solid rgba(0,0,0,0.05);"></div>
                             <span class="color-label-text">Beige 20</span>
@@ -393,28 +430,28 @@
                         </div>
                     </div>
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square" style="background-color: #FCEBE6;"></div>
                             <span class="color-label-text">Beige 30</span>
                             <span class="color-hex-text">#FCEBE6</span>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square" style="background-color: #F7C6B8;"></div>
                             <span class="color-label-text">Beige 50</span>
                             <span class="color-hex-text">#F7C6B8</span>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square" style="background-color: #FA9A82;"></div>
                             <span class="color-label-text">Beige 70</span>
                             <span class="color-hex-text">#FA9A82</span>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square" style="background-color: #F87D60;"></div>
                             <span class="color-label-text">Beige 80</span>
                             <span class="color-hex-text">#F87D60</span>
@@ -425,7 +462,7 @@
                 <h4 class="mb-3">Neutrals</h4>
                 <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-xl-6 g-3 mb-5">
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square"
                                 style="background-color: #FFFFFF; border: 1px solid rgba(0,0,0,0.05);"></div>
                             <span class="color-label-text">Neutrals 0</span>
@@ -433,28 +470,28 @@
                         </div>
                     </div>
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square" style="background-color: #D9D9D9;"></div>
                             <span class="color-label-text">Neutrals 30</span>
                             <span class="color-hex-text">#D9D9D9</span>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square" style="background-color: #B8b8b8;"></div>
                             <span class="color-label-text">Neutrals 50</span>
                             <span class="color-hex-text">#B8b8b8</span>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square" style="background-color: #838383;"></div>
                             <span class="color-label-text">Neutrals 70</span>
                             <span class="color-hex-text">#838383</span>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="color-spec-card">
+                        <div>
                             <div class="color-swatch-square" style="background-color: #1F1718;"></div>
                             <span class="color-label-text">Neutrals 100</span>
                             <span class="color-hex-text">#1F1718</span>
@@ -462,12 +499,60 @@
                     </div>
                 </div>
 
-                <h5>Accessibility Parameters</h5>
-                <p class="p-3 bg-light border-start border-4 border-danger small text-muted">
-                    Color combinations follow clear semantic groups based on value and hue transitions. Background
-                    tokens utilize ultra-soft low-contrast weights to prevent optical fatigue while retaining legibility
-                    criteria.
-                </p>
+                <div class="container mt-5">
+                    <h5>Color Use Cases</h5>
+                    <div class="row g-4">
+                        <!-- Primary Color -->
+                        <div class="col-md-6 col-xl-3">
+                            <div class="p-3 border rounded-3 h-100 bg-white">
+                                <h6><strong>Primary: Blood</strong></h6>
+                                <p class="small text mb-0">Prominent functional accent token. Used universally across
+                                    all components for primary interactive targets, active navigation states,
+                                    call-to-action buttons, and focal borders.</p>
+                            </div>
+                        </div>
+                        <!-- Secondary Color -->
+                        <div class="col-md-6 col-xl-3">
+                            <div class="p-3 border rounded-3 h-100 bg-white">
+                                <h6><strong>Secondary: Lavender</strong></h6>
+                                <p class="small text mb-0">Provides a soft, contrasting resting frame to balance the
+                                    high energy of Blood. Used for expanded accordion category blocks, tag pills,
+                                    container backgrounds, and highlight states.</p>
+                            </div>
+                        </div>
+                        <!-- Tertiary Color -->
+                        <div class="col-md-6 col-xl-3">
+                            <div class="p-3 border rounded-3 h-100 bg-white">
+                                <h6><strong>Tertiary: Terracotta & Beige</strong></h6>
+                                <p class="small text mb-0">Brings natural warmth to small layout attributes. Reserved
+                                    for tertiary label tags, secondary micro-details inside main components, or
+                                    decorative hand-drawn stroke backgrounds.</p>
+                            </div>
+                        </div>
+                        <!-- Neutrals -->
+                        <div class="col-md-6 col-xl-3">
+                            <div class="p-3 border rounded-3 h-100 bg-white">
+                                <h6><strong>Neutrals & Ink</strong></h6>
+                                <p class="small text mb-0">The stable foundation of our interface readability. Dictates
+                                    the styling of layout dividing lines, structural wireframe shadows, component
+                                    borders, and deep text readability blocks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container mt-5">
+                    <h5>Accessibility Parameters</h5>
+                    <p class="p-3 bg-light border-start border-4 border-danger small">
+                        Color combinations follow clear semantic groups based on value and hue transitions. Background
+                        tokens utilize ultra-soft low-contrast weights to prevent optical fatigue while retaining
+                        legibility
+                        criteria.
+                    </p>
+                </div>
+
+
+
             </main>
         </div>
     </div>
